@@ -1,5 +1,7 @@
 # Personal-Website
 
+Utilizes History API 
+
 ```
 cd Personal
 npm install
