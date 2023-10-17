@@ -1,80 +1,165 @@
 @font-face {
-  font-family: "NeueHaasDisplay";
-  src: url("../fonts/NeueHaasDisplayRoman.ttf");
+    font-family: "NeueHaasDisplay";
+    src: url("../fonts/NeueHaasDisplayRoman.ttf");
 }
-
 
 * {
-  padding: 0;
-  margin: 0;
+    padding: 0;
+    margin: 0;
 
-  color: white;
-  background-color: rgb(15, 15, 15);
+    color: white;
+    background-color: rgb(15, 15, 15);
 
-  overflow:hidden;
-
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-body, html {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
+body,
+html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
 }
 
 #hero {
-  margin: 80px;
+    padding: 80px;
 
-  display: flex;
-  flex-direction: column;
-  height: 80vh;
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
 }
 
 #nav {
-  flex-grow: 1;
-  display: flex;
-  justify-content: space-between;
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
 }
 
-#title {
-}
+p {
+    font-family: "NeueHaasDisplay";
+    font-weight: 500;
 
-a {
-  font-family: "NeueHaasDisplay";
-  font-weight: 500;
+    /* font-size: 1vw; */
+    font-size: 25px;
 
-  /* font-size: 1vw; */
-  font-size: 25px;
-
-  cursor: pointer;
+    cursor: pointer;
 }
 
 h1 {
-  font-family: "NeueHaasDisplay";
-  font-weight: 500;
+    font-family: "NeueHaasDisplay";
+    font-weight: 500;
 
-  font-size: 8vw;
-  line-height: 7vw;
+    font-size: 8vw;
+    line-height: 7vw;
 }
-
 
 #content-wrap {
-  margin: 80px;
-  display: flex;
-  justify-content: space-between;
+    margin: 80px;
+    height: 80vh;
 }
 
+#nav-wrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+#nav-right {
+    text-align: right;
+}
 
 .content {
-
-  display: none;
-  position: absolute;
-  height:100vh;
-  width: 100vw;
+    display: none;
+    position: absolute;
+    /* height: 100vh; */
+    width: 100vw;
 }
 
 .back-right {
-  margin-left: auto;
+    margin-left: auto;
 }
 
+#project-main {
+    margin: 0;
+    position: absolute;
+    top: 55%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+
+    display: flex;
+
+    /* margin-left: 40%; */
+    /* padding-right: 40%; */
+}
+
+.project-box {
+    margin: 10px;
+
+    font-family: "NeueHaasDisplay";
+
+    width: 200px;
+
+    /* border-width: 2px;
+    border-style: solid;
+    border-color: rgb(75, 75, 75); */
+}
+
+.project-img {
+    height: 30vh;
+    width: 100%;
+    background-color: rgb(245, 245, 245);
+}
+
+.project-title {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.project-info div {
+    margin-top: 20px;
+}
+
+ul > li {
+    list-style-type: none;
+    display: inline-block;
+
+    background-color: rgb(53, 53, 53);
+    padding: 5px;
+
+    border-radius: 5px;
+}
+
+#title {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
+    transform: translateY(-100px);
+    transition: transform 0s;
+}
+
+.title-animation {
+    transform: translateY(150px);
+    transition: transform 0s;
+}
+
+.move-up {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.button-animation {
+    transform: translateY(50px);
+    transition: transform 0s;
+}
+
+.button-animation-delay {
+    transform: translateY(50px);
+    transition: transform 0s;
+}
