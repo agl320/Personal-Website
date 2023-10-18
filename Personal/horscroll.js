@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 const projects = gsap.utils.toArray("#project-main .project-box");
 
 let scrollTween = gsap.to(projects, {
-    xPercent: -100 * 2 * (projects.length - 1),
+    xPercent: -100 * (projects.length - 1),
     ease: "none",
     scrollTrigger: {
         // invalidateOnRefresh: true,
@@ -15,6 +15,6 @@ let scrollTween = gsap.to(projects, {
         pin: true,
         scrub: 1,
         // start: "top top",
-        end: () => `+=${6000}`,
+        end: () => `+=${8000}`,
     },
 });

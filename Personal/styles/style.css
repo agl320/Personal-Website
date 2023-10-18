@@ -50,7 +50,7 @@ p {
     font-weight: 500;
 
     /* font-size: 1vw; */
-    font-size: 25px;
+    font-size: 20px;
 
     cursor: pointer;
 }
@@ -97,12 +97,13 @@ h1 {
 
     display: flex;
 
-    margin-left: 30%;
+    margin-left: 20%;
+
     /* padding-right: 40%; */
 }
 
 .project-box {
-    margin: 10px;
+    margin: 5px;
 
     font-family: "NeueHaasDisplay";
 
@@ -116,14 +117,14 @@ h1 {
 .project-img {
     height: 30vh;
     width: 100%;
-    background-color: rgb(175, 175, 175);
+    background-color: rgb(78, 78, 78);
     transition: background-color 2s;
 }
 
 .project-img:hover {
     height: 30vh;
     width: 100%;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(119, 119, 119);
     transition: background-color 0.2s;
 }
 
@@ -178,12 +179,12 @@ ul > li {
 }
 
 .button-animation {
-    transform: translateY(50px);
+    transform: translateY(30px);
     transition: transform 0s;
 }
 
 .button-animation-delay {
-    transform: translateY(50px);
+    transform: translateY(30px);
     transition: transform 0s;
 }
 
