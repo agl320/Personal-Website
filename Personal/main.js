@@ -172,6 +172,9 @@ navLinks.forEach((navLink) => {
         if (id == "home") {
             // exit animation -------------------------------- to home ----------
             // BACK BUTTON ANIMATION
+
+            // CHECK IF PROJECTS IS VISIBLE, THEN MAKE IT ANIMATE AWAY
+            // ELSE, SKIP TO SAVE TIME
             gsap.fromTo(
                 ".project-box",
                 { opacity: 1, marginRight: 5 },
