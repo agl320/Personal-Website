@@ -31,7 +31,7 @@
                     </div>
 
                     <div id="project-main">
-                        <div class="project-box" style="text-align: right">
+                        <div class="project-box" style="text-align: center">
                             <i class="arrow left"></i> 01
                         </div>
                         <div class="project-box">
@@ -77,14 +77,27 @@
                             <div class="project-info">
                                 <div class="project-title">DEVPOST SCRAPER</div>
                                 <div>
-                                    Fork of ... modified to ... description blah
-                                    blah blah etc.
+                                    <p>
+                                        Python scraper that collects submission
+                                        data from any given number of Devpost
+                                        hackathon pages and returns project
+                                        data. <br /><br />
+                                        Originally forked from Lynn Samson's
+                                        Python Devpost Scraper, I implemented an
+                                        improved description retrieval system
+                                        using extractive summarization through
+                                        spaCy, added multiple URL support, and
+                                        the ability to specify the number of
+                                        submissions from each page of each
+                                        hackathon.
+                                    </p>
                                 </div>
                                 <div>
                                     <ul>
                                         <li>Python</li>
                                         <li class="tag-special">spaCy</li>
                                         <li class="tag-special">NLP</li>
+                                        <li class="tag-special">Flask</li>
                                     </ul>
                                 </div>
                             </div>
@@ -94,8 +107,19 @@
                             <div class="project-info">
                                 <div class="project-title">MYSIPS</div>
                                 <div>
-                                    Fork of ... modified to ... description blah
-                                    blah blah etc.
+                                    <p>
+                                        Website application that records and
+                                        stores drinks from your favourite
+                                        beverage locations. <br /><br />I used
+                                        this project to learn the fundamentals
+                                        of React's component life cycle, as well
+                                        as educate myself around the importance
+                                        and difficulty surrounding effective
+                                        authentication systems. I implemented a
+                                        small backend server which allowed me to
+                                        retrieve drinks from a MySQL database as
+                                        well handle all login data.
+                                    </p>
                                 </div>
                                 <div>
                                     <ul>
@@ -240,7 +264,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="project-box">
+                        <div class="project-box" style="text-align: center">
                             END // ABYSS <i class="arrow right"></i>
                         </div>
                     </div>
@@ -309,6 +333,7 @@
         <script type="module" src="/main.js"></script>
         <script type="module" src="/horscroll.js"></script>
         <script type="module" src="/text.js"></script>
+        <script type="module" src="/project.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/CustomEase.min.js"></script>
     </body>
 </html>

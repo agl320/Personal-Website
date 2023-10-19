@@ -42,7 +42,7 @@ function titleAnimateIn() {
 function linksAnimateIn() {
     // STILL NEED TO ADD ANIMATE OF OUTER DIV IN OPPOSITE DIRECTION
     gsap.fromTo(
-        ".button-animation",
+        [".button-animation", ".button-animation-delay"],
         { y: 50 },
         {
             stagger: 0.1,
@@ -56,20 +56,20 @@ function linksAnimateIn() {
         }
     );
 
-    gsap.fromTo(
-        ".button-animation-delay",
-        { y: 50 },
-        {
-            stagger: 0.1,
-            delay: 1,
-            y: 0,
-            duration: 1.2,
-            ease: CustomEase.create(
-                "custom",
-                "M0,0 C0.054,0.376 0.034,0.293 0.121,0.527 0.153,0.614 0.187,0.724 0.297,0.815 0.492,0.906 0.881,1 1,1 "
-            ),
-        }
-    );
+    // gsap.fromTo(
+    //     ".button-animation-delay",
+    //     { y: 50 },
+    //     {
+    //         stagger: 0.1,
+    //         delay: 1,
+    //         y: 0,
+    //         duration: 1.2,
+    //         ease: CustomEase.create(
+    //             "custom",
+    //             "M0,0 C0.054,0.376 0.034,0.293 0.121,0.527 0.153,0.614 0.187,0.724 0.297,0.815 0.492,0.906 0.881,1 1,1 "
+    //         ),
+    //     }
+    // );
 }
 
 function showContent(id) {
@@ -92,10 +92,10 @@ function showContent(id) {
         titleAnimateIn();
         linksAnimateIn();
     } else {
+        // hide hero
         heroContainer.style.display = "none";
+        // show content and ensure scroll
         contentContainer.style.display = "block";
-        document.body.style.overflow = "visible";
-        document.documentElement.style.overflow = "visible";
 
         // animation in for BACK BUTTON
         gsap.fromTo(
@@ -116,6 +116,10 @@ function showContent(id) {
         //check which page, play animations depending on page
         // use if statement below
         if (id === "projects") {
+            // allow scroll for projects
+            document.body.style.overflow = "visible";
+            document.documentElement.style.overflow = "visible";
+
             // gsap.fromTo(
             //     ".project-box",
             //     { x: 1300 },
@@ -267,6 +271,7 @@ navLinks.forEach((navLink) => {
 window.addEventListener("popstate", (event) => {
     const state = event.state;
     if (state && state.page) {
+        // PLAY EXIT ANIMATIONS HERE
         showContent(state.page);
     }
 });

@@ -91,23 +91,27 @@ h1 {
 #project-main {
     margin: 0;
     position: absolute;
-    top: 55%;
+    top: 50%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 
     display: flex;
 
-    margin-left: 20%;
+    left: 20%;
+    margin-left: -10vh;
 
     /* padding-right: 40%; */
 }
 
 .project-box {
-    margin: 5px;
+    /* margin: 10px; */
+    margin: 0.5vw;
 
     font-family: "NeueHaasDisplay";
 
-    width: 220px;
+    width: 20vh;
+
+    text-align: center;
 
     /* border-width: 2px;
     border-style: solid;
@@ -115,26 +119,57 @@ h1 {
 }
 
 .project-img {
-    height: 30vh;
+    /* height: 30vh; */
+    height: 10vh;
     width: 100%;
     background-color: rgb(78, 78, 78);
     transition: background-color 2s;
+
+    justify-content: center;
+    text-align: center;
 }
 
 .project-img:hover {
-    height: 30vh;
-    width: 100%;
+    /* height: 30vh; */
+    /* height: 220px;
+    width: 100%; */
     background-color: rgb(119, 119, 119);
     transition: background-color 0.2s;
+    /* transition: scale 0.2s;
+
+    scale: 1 1.2; */
 }
 
 .project-title {
-    font-size: 1em;
+    /* font-size: 1em; */
     font-weight: bold;
 }
 
+.project-info {
+    display: none;
+}
+
 .project-info div {
-    margin-top: 20px;
+    /* margin-top: 20px; */
+    font-size: clamp(4px, 0.6vw, 5px);
+
+    /* margin-left: 10px; */
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    text-align: left;
+}
+
+.project-info div p {
+    /* margin-top: 20px; */
+    font-size: clamp(4px, 0.6vw, 5px);
+
+    /* margin-left: 10px; */
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    text-align: justify;
+    text-justify: inter-character;
 }
 
 /* ul {
@@ -149,13 +184,14 @@ ul > li {
     display: inline-block;
 
     background-color: rgb(53, 53, 53);
-    padding: 5px;
+    padding: 2px;
 
     /* border-radius: 5px; */
 
-    margin-bottom: 3px;
-
-    font-size: 0.7em;
+    margin-bottom: 2px;
+    /* 
+    font-size: 0.7em; */
+    font-size: 0.4vh;
 }
 
 .tag-special {
