@@ -3,6 +3,11 @@
     src: url("../fonts/NeueHaasDisplayRoman.ttf");
 }
 
+@font-face {
+    font-family: "LR";
+    src: url("../fonts/lmroman10-regular.otf");
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -11,6 +16,8 @@
     background-color: rgb(15, 15, 15);
 
     box-sizing: border-box;
+
+    cursor: default;
 }
 
 body,
@@ -21,6 +28,19 @@ html {
     padding: 0;
 
     overflow: hidden;
+}
+
+.LR {
+    font-family: "LR";
+}
+
+.LR-italic {
+    font-family: "LR";
+    font-style: italic;
+}
+
+.N {
+    font-family: "NeueHaasDisplay";
 }
 
 #hero {
@@ -50,13 +70,23 @@ p {
     font-weight: 500;
 
     /* font-size: 1vw; */
-    font-size: 20px;
+    font-size: 17px;
 
     cursor: pointer;
 }
 
+.navlink {
+    font-weight: 600;
+}
+
+.decor-navlink {
+    font-weight: 600;
+
+    text-align: right;
+}
+
 h1 {
-    font-family: "NeueHaasDisplay";
+    /* font-family: "NeueHaasDisplay"; */
     font-weight: 500;
 
     font-size: 8vw;
@@ -86,6 +116,11 @@ h1 {
 
 .back-right {
     margin-left: auto;
+}
+
+.back-center {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #project-main {
@@ -154,8 +189,8 @@ h1 {
     font-size: clamp(4px, 0.6vw, 5px);
 
     /* margin-left: 10px; */
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 10px;
+    /* margin-bottom: 5px; */
 
     text-align: left;
 }
@@ -203,6 +238,8 @@ ul > li {
 
     transform: translateY(-100px);
     transition: transform 0s;
+
+    margin-top: 20px;
 }
 
 .title-animation {
@@ -212,6 +249,7 @@ ul > li {
 
 .move-up {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    margin-bottom: 10px;
 }
 
 .button-animation {

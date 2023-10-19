@@ -5,7 +5,7 @@ const contentContainers = document.querySelectorAll(".content");
 // #content-container is all contents together
 const contentContainer = document.getElementById("content-container");
 const heroContainer = document.getElementById("hero");
-const navLinks = document.querySelectorAll("p");
+const navLinks = document.querySelectorAll(".navlink");
 
 gsap.registerPlugin(CustomEase);
 

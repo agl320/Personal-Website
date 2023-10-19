@@ -16,7 +16,7 @@ projectBOXarr.forEach((projectBOX, index) => {
             focus = true;
             console.log("Focusing on image now!");
 
-            gsap.fromTo(`#key-${index}`, { opacity: 1 }, { opacity: 1 });
+            // gsap.fromTo(`#key-${index}`, { opacity: 1 }, { opacity: 1 });
 
             // FOR EACH project box, if not pressed, make invisible
             // else do animation -> invisible + scale
@@ -48,12 +48,14 @@ projectBOXarr.forEach((projectBOX, index) => {
                         {
                             scaleY: 1.2,
                             opacity: 0,
-                            ease: "power2.out",
+                            ease: "ease.in",
                             onComplete: () => {
                                 gsap.fromTo(
                                     `#key-${index2}`,
                                     { opacity: 0, scaleY: 3, scaleX: 3 },
                                     {
+                                        duration: 0.3,
+                                        delay: 0.2,
                                         opacity: 1,
                                         scaleY: 3,
                                         scaleX: 3,
@@ -81,6 +83,7 @@ projectBOXarr.forEach((projectBOX, index) => {
                 `#key-${index}`,
                 { opacity: 1 },
                 {
+                    duration: 0.5,
                     opacity: 0,
 
                     onComplete: () => {
