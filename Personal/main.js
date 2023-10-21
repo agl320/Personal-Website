@@ -9,6 +9,11 @@ const navLinks = document.querySelectorAll(".navlink");
 
 gsap.registerPlugin(CustomEase);
 
+let aniDone = true;
+let lastPage = "home";
+let targetPage = "home";
+history.pushState({ page: "home" }, "", `/`);
+
 function titleAnimateIn() {
     gsap.fromTo(
         ".title-animation",
@@ -39,15 +44,13 @@ function titleAnimateIn() {
     );
 }
 
-function linksAnimateIn() {
-    // STILL NEED TO ADD ANIMATE OF OUTER DIV IN OPPOSITE DIRECTION
+function titleAnimateOut() {
     gsap.fromTo(
-        [".button-animation", ".button-animation-delay"],
-        { y: 50 },
+        ".title-animation",
+        { y: 0 },
         {
-            stagger: 0.1,
-            delay: 0.6,
-            y: 0,
+            delay: 0,
+            y: -150,
             duration: 1.2,
             ease: CustomEase.create(
                 "custom",
@@ -55,24 +58,109 @@ function linksAnimateIn() {
             ),
         }
     );
-
-    // gsap.fromTo(
-    //     ".button-animation-delay",
-    //     { y: 50 },
-    //     {
-    //         stagger: 0.1,
-    //         delay: 1,
-    //         y: 0,
-    //         duration: 1.2,
-    //         ease: CustomEase.create(
-    //             "custom",
-    //             "M0,0 C0.054,0.376 0.034,0.293 0.121,0.527 0.153,0.614 0.187,0.724 0.297,0.815 0.492,0.906 0.881,1 1,1 "
-    //         ),
-    //     }
-    // );
+    gsap.fromTo(
+        "#title",
+        { y: 0 },
+        {
+            delay: 0,
+            y: 100,
+            duration: 1.2,
+            ease: CustomEase.create(
+                "custom",
+                "M0,0 C0.054,0.376 0.034,0.293 0.121,0.527 0.153,0.614 0.187,0.724 0.297,0.815 0.492,0.906 0.881,1 1,1 "
+            ),
+        }
+    );
 }
 
-function showContent(id) {
+function linksAnimateIn(delay = 0, onComplete = {}) {
+    // STILL NEED TO ADD ANIMATE OF OUTER DIV IN OPPOSITE DIRECTION
+    // button-animation-delay allows for separating if needed later
+    gsap.fromTo(
+        [".button-animation", ".button-animation-delay"],
+        { y: 50 },
+        {
+            stagger: 0.1,
+            delay: delay,
+            y: 0,
+            duration: 1.2,
+            ease: CustomEase.create(
+                "custom",
+                "M0,0 C0.054,0.376 0.034,0.293 0.121,0.527 0.153,0.614 0.187,0.724 0.297,0.815 0.492,0.906 0.881,1 1,1 "
+            ),
+            onComplete: onComplete,
+        }
+    );
+}
+
+function linksAnimateOut(delay = 0, onComplete = {}) {
+    gsap.fromTo(
+        [".button-animation", ".button-animation-delay"],
+        { y: 0 },
+        {
+            stagger: 0,
+            delay: delay,
+            y: -30,
+            duration: 1.2,
+            ease: CustomEase.create(
+                "custom",
+                "M0,0 C0.054,0.376 0.034,0.293 0.121,0.527 0.153,0.614 0.187,0.724 0.297,0.815 0.492,0.906 0.881,1 1,1 "
+            ),
+            onComplete: onComplete,
+        }
+    );
+}
+
+function projectsAnimateIn() {
+    // ensure that interactions do not occur until after animations are complete
+    const projectBOXArr = document.querySelectorAll(".project-box");
+
+    projectBOXArr.forEach((item, index) => {
+        item.style.pointerEvents = "none";
+    });
+
+    navLinks.forEach((item, index) => {
+        item.style.pointerEvents = "none";
+    });
+
+    gsap.fromTo(
+        ".project-box",
+        { opacity: 0, marginRight: 5 },
+        {
+            opacity: 1,
+            stagger: 0.02,
+            delay: 0.3,
+            duration: 0.8,
+            ease: "power2.out",
+            onComplete: () => {
+                projectBOXArr.forEach((item, index) => {
+                    item.style.pointerEvents = "auto";
+                });
+                navLinks.forEach((item, index) => {
+                    item.style.pointerEvents = "auto";
+                });
+            },
+        }
+    );
+}
+
+function projectsAnimateOut(onComplete) {
+    gsap.fromTo(
+        ".project-box",
+        { opacity: 1, marginRight: 5 },
+        {
+            marginRight: 20,
+            opacity: 0,
+            stagger: 0,
+            delay: 0,
+            duration: 0.5,
+            ease: "power2.out",
+            onComplete: onComplete,
+        }
+    );
+}
+
+function showContent(id, onComplete = {}) {
     // make every content container (about, projects, etc.) display none
     contentContainers.forEach((content) => {
         content.style.display = "none";
@@ -80,9 +168,8 @@ function showContent(id) {
 
     // make last page hide
 
-    console.log("ID: " + id);
+    console.log("Showing content: " + id);
 
-    // STILL NEED TO DIFFERENTIATE WITHIN EACH PAGE SO PAGES LIKE ABOUT DO NOT SCROLL (OVERFLOW)
     if (id === "home") {
         heroContainer.style.display = "flex";
         contentContainer.style.display = "none";
@@ -90,71 +177,18 @@ function showContent(id) {
         document.documentElement.style.overflow = "hidden";
 
         titleAnimateIn();
-        linksAnimateIn();
+        linksAnimateIn(0.6, onComplete);
     } else {
-        // hide hero
         heroContainer.style.display = "none";
-        // show content and ensure scroll
         contentContainer.style.display = "block";
 
-        // animation in for BACK BUTTON
-        gsap.fromTo(
-            ".button-animation",
-            { y: 30 },
-            {
-                stagger: 0.1,
-                delay: 0,
-                y: 0,
-                duration: 1.2,
-                ease: CustomEase.create(
-                    "custom",
-                    "M0,0 C0.054,0.376 0.034,0.293 0.121,0.527 0.153,0.614 0.187,0.724 0.297,0.815 0.492,0.906 0.881,1 1,1 "
-                ),
-            }
-        );
+        linksAnimateIn(0, onComplete);
 
-        //check which page, play animations depending on page
-        // use if statement below
         if (id === "projects") {
-            // allow scroll for projects
             document.body.style.overflow = "visible";
             document.documentElement.style.overflow = "visible";
 
-            // gsap.fromTo(
-            //     ".project-box",
-            //     { x: 1300 },
-            //     {
-            //         stagger: 0.1,
-            //         delay: 0.3,
-            //         x: 0,
-            //         duration: 3,
-            //         ease: "ease.out",
-            //     }
-            // );
-            gsap.fromTo(
-                ".project-box",
-                { opacity: 0, marginRight: 5 },
-                {
-                    opacity: 1,
-                    stagger: 0.02,
-                    delay: 0.3,
-                    duration: 0.8,
-                    ease: "power2.out",
-                }
-            );
-
-            // gsap.fromTo(
-            //     ".project-main",
-            //     { scaleX: 0.5 },
-            //     {
-            //         margin
-            //         scaleX: 1,
-            //         // stagger: 0.1,
-            //         delay: 0,
-            //         duration: 0.8,
-            //         ease: "ease.out",
-            //     }
-            // );
+            projectsAnimateIn();
         }
     }
 
@@ -168,111 +202,160 @@ function showContent(id) {
 // Handle navigation link clicks
 navLinks.forEach((navLink) => {
     const id = navLink.id.replace(/-button$/, "");
-    console.log(id);
 
     navLink.addEventListener("click", (event) => {
         event.preventDefault(); // Prevent the default link behavior (full page refresh)
 
-        if (id == "home") {
-            // exit animation -------------------------------- to home ----------
-            // BACK BUTTON ANIMATION
+        console.log(`Nav button pressed: ${id}`);
 
-            // CHECK IF PROJECTS IS VISIBLE, THEN MAKE IT ANIMATE AWAY
-            // ELSE, SKIP TO SAVE TIME
-            gsap.fromTo(
-                ".project-box",
-                { opacity: 1, marginRight: 5 },
-                {
-                    marginRight: 20,
-                    opacity: 0,
-                    stagger: 0,
-                    delay: 0,
-                    duration: 0.5,
-                    ease: "power2.out",
+        //     if (id == "home") {
+        //         projectsAnimateOut();
+        //         linksAnimateOut(0, () => {
+        //             showContent(id);
+
+        //             lastPage = "home";
+        //             console.log(`New push state: ${id}`);
+        //             history.pushState({ page: id }, "", `/`);
+        //         });
+        //     } else {
+        //         titleAnimateOut();
+        //         linksAnimateOut(0, () => {
+        //             showContent(id);
+
+        //             lastPage = id;
+        //             console.log(`New push state: ${id}`);
+        //             history.pushState({ page: id }, "", `/${id}`);
+        //         });
+        //     }
+        // });
+
+        // delete below
+        // state.page is id
+
+        console.log("----------------");
+        console.log(
+            `Navlink called: animationDone: ${aniDone}, Last complete load: ${lastPage}, New page called: ${id}, target: ${targetPage}`
+        );
+
+        if (aniDone == true) {
+            console.log("Animation is done, checking for changed state");
+
+            aniDone = false;
+
+            console.log(`New target state: ${id}`);
+            targetPage = id;
+
+            if (id) {
+                // different page called and animation done
+                if (lastPage != id) {
+                    console.log(`Old page: ${lastPage} ; New page: ${id}`);
+
+                    if (id == "home") {
+                        projectsAnimateOut();
+                        linksAnimateOut(0, () => {
+                            showContent(id, () => {
+                                console.log(
+                                    `Animation done. New last loaded page: ${lastPage}.`
+                                );
+                                aniDone = true;
+                                lastPage = id;
+
+                                console.log(`New push state: ${id}`);
+                                history.pushState({ page: id }, "", `/`);
+                            });
+                        });
+                    } else {
+                        titleAnimateOut();
+                        linksAnimateOut(0, () => {
+                            showContent(id, () => {
+                                console.log(
+                                    `Animation done. New last loaded page: ${lastPage}.`
+                                );
+                                aniDone = true;
+                                lastPage = id;
+
+                                console.log(`New push state: ${id}`);
+                                history.pushState({ page: id }, "", `/${id}`);
+                            });
+                        });
+                    }
+                } else {
+                    console.log("Page not changing, no animation to wait for");
+                    aniDone = true;
                 }
-            );
-            gsap.fromTo(
-                [".button-animation"],
-                { y: 0 },
-                {
-                    stagger: 0,
-                    delay: 0,
-                    y: -30,
-                    duration: 1.2,
-                    ease: CustomEase.create(
-                        "custom",
-                        "M0,0 C0.054,0.376 0.034,0.293 0.121,0.527 0.153,0.614 0.187,0.724 0.297,0.815 0.492,0.906 0.881,1 1,1 "
-                    ),
-                    onComplete: () => {
-                        showContent(id);
-                        history.pushState({ page: id }, "", `/`);
-                    },
-                }
-            );
+            }
         } else {
-            // exit animation -------------------------------- to other page ----------
-            //animation out for title
-            gsap.fromTo(
-                ".title-animation",
-                { y: 0 },
-                {
-                    delay: 0,
-                    y: -150,
-                    duration: 1.2,
-                    ease: CustomEase.create(
-                        "custom",
-                        "M0,0 C0.054,0.376 0.034,0.293 0.121,0.527 0.153,0.614 0.187,0.724 0.297,0.815 0.492,0.906 0.881,1 1,1 "
-                    ),
-                }
+            console.log("Animation is not done, continuing to target state");
+            console.log(
+                `Last loaded page: ${lastPage}, new page called: ${id}, target: ${targetPage}`
             );
-            gsap.fromTo(
-                "#title",
-                { y: 0 },
-                {
-                    delay: 0,
-                    y: 100,
-                    duration: 1.2,
-                    ease: CustomEase.create(
-                        "custom",
-                        "M0,0 C0.054,0.376 0.034,0.293 0.121,0.527 0.153,0.614 0.187,0.724 0.297,0.815 0.492,0.906 0.881,1 1,1 "
-                    ),
-                }
-            );
-
-            // animation out for links/buttons on right side
-
-            // animation out for links/buttons to other pages
-            gsap.fromTo(
-                [".button-animation", ".button-animation-delay"],
-                { y: 0 },
-                {
-                    stagger: 0,
-                    delay: 0,
-                    y: -30,
-                    duration: 1.2,
-                    ease: CustomEase.create(
-                        "custom",
-                        "M0,0 C0.054,0.376 0.034,0.293 0.121,0.527 0.153,0.614 0.187,0.724 0.297,0.815 0.492,0.906 0.881,1 1,1 "
-                    ),
-                    onComplete: () => {
-                        // const id = event.target.getAttribute('href').substring(1); // Get the link's target ID
-                        showContent(id);
-
-                        // Update the URL using the History API
-                        history.pushState({ page: id }, "", `/${id}`);
-                    },
-                }
-            );
+            if (targetPage == "home") {
+                history.pushState({ page: targetPage }, "", `/`);
+            } else {
+                history.pushState({ page: targetPage }, "", `/${targetPage}`);
+            }
         }
     });
 });
 
-// Handle the popstate event to update content when back/forward buttons are used
 window.addEventListener("popstate", (event) => {
+    console.log("----------------");
+    console.log(
+        `Pop called: animationDone: ${aniDone}, Last complete load: ${lastPage}, New page called: ${event.state.page}, target: ${targetPage}`
+    );
+
     const state = event.state;
-    if (state && state.page) {
-        // PLAY EXIT ANIMATIONS HERE
-        showContent(state.page);
+    if (aniDone == true) {
+        console.log("Animation is done, checking for changed state");
+
+        aniDone = false;
+
+        console.log(`New target state: ${state.page}`);
+        targetPage = state.page;
+
+        if (state && state.page) {
+            // different page called and animation done
+            if (lastPage != state.page) {
+                console.log(`Old page: ${lastPage} ; New page: ${state.page}`);
+
+                if (state.page == "home") {
+                    projectsAnimateOut();
+                    linksAnimateOut(0, () => {
+                        showContent(state.page, () => {
+                            console.log(
+                                `Animation done. New last loaded page: ${lastPage}.`
+                            );
+                            aniDone = true;
+                            lastPage = state.page;
+                        });
+                    });
+                } else {
+                    titleAnimateOut();
+                    linksAnimateOut(0, () => {
+                        showContent(state.page, () => {
+                            console.log(
+                                `Animation done. New last loaded page: ${lastPage}.`
+                            );
+                            aniDone = true;
+                            lastPage = state.page;
+                        });
+                    });
+                }
+            } else {
+                console.log("Page not changing, no animation to wait for");
+                aniDone = true;
+            }
+        }
+    } else {
+        console.log("Animation is not done, continuing to target state");
+        console.log(
+            `Last loaded page: ${lastPage}, new page called: ${state.page}, target: ${targetPage}`
+        );
+        if (targetPage == "home") {
+            history.pushState({ page: targetPage }, "", `/`);
+        } else {
+            history.pushState({ page: targetPage }, "", `/${targetPage}`);
+        }
     }
 });
 

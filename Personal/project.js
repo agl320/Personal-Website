@@ -3,6 +3,19 @@ const projectBOXarr = document.querySelectorAll(".project-box");
 const projectINFOarr = document.querySelectorAll(".project-info");
 const projectContainer = document.getElementById("project-main");
 
+const projectBACK = document.getElementsByClassName(
+    "button-animation navlink project-back"
+)[0];
+
+import Baffle from "baffle";
+
+// give all titles animations on entry
+const allTitles = document.querySelectorAll(".project-title");
+
+let b = Baffle(allTitles, {
+    characters: "█▓░▒▓ !@#$%^&*()_-+=[]{}|;:,.<>?",
+});
+
 import gsap from "gsap";
 
 projectBOXarr.forEach((projectBOX, index) => {
@@ -15,6 +28,27 @@ projectBOXarr.forEach((projectBOX, index) => {
         if (focus == false) {
             focus = true;
             console.log("Focusing on image now!");
+
+            projectBACK.style.userSelect = "none";
+
+            gsap.fromTo(
+                projectBACK,
+                { opacity: 1 },
+                {
+                    stagger: 0,
+                    delay: 0,
+                    // y: -30,
+                    opacity: 0,
+                    // duration: 1.2,
+                    // ease: CustomEase.create(
+                    //     "custom",
+                    //     "M0,0 C0.054,0.376 0.034,0.293 0.121,0.527 0.153,0.614 0.187,0.724 0.297,0.815 0.492,0.906 0.881,1 1,1 "
+                    // ),
+                    onComplete: () => {
+                        projectBACK.style.display = "none";
+                    },
+                }
+            );
 
             // gsap.fromTo(`#key-${index}`, { opacity: 1 }, { opacity: 1 });
 
@@ -46,10 +80,12 @@ projectBOXarr.forEach((projectBOX, index) => {
                         `#key-${index2}`,
                         { opacity: 1, scaleY: 1 },
                         {
-                            scaleY: 1.2,
+                            scaleY: 1.1,
                             opacity: 0,
                             ease: "ease.in",
                             onComplete: () => {
+                                b.start();
+
                                 gsap.fromTo(
                                     `#key-${index2}`,
                                     { opacity: 0, scaleY: 3, scaleX: 3 },
@@ -59,6 +95,9 @@ projectBOXarr.forEach((projectBOX, index) => {
                                         opacity: 1,
                                         scaleY: 3,
                                         scaleX: 3,
+                                        onComplete: () => {
+                                            b.reveal(1000, 1000);
+                                        },
                                     }
                                 );
 
@@ -87,6 +126,26 @@ projectBOXarr.forEach((projectBOX, index) => {
                     opacity: 0,
 
                     onComplete: () => {
+                        projectBACK.style.display = "block";
+                        gsap.fromTo(
+                            projectBACK,
+                            { opacity: 0 },
+                            {
+                                duration: 0.5,
+                                stagger: 0,
+                                delay: 0,
+                                opacity: 1,
+                                // duration: 1.2,
+                                // ease: CustomEase.create(
+                                //     "custom",
+                                //     "M0,0 C0.054,0.376 0.034,0.293 0.121,0.527 0.153,0.614 0.187,0.724 0.297,0.815 0.492,0.906 0.881,1 1,1 "
+                                // ),
+                                onComplete: () => {
+                                    projectBACK.style.userSelect = "auto";
+                                },
+                            }
+                        );
+
                         // project wrapper container must revert back to origin
                         projectContainer.style.left = "20%";
                         projectContainer.style.top = "50%";
