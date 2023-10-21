@@ -9,10 +9,11 @@ const navLinks = document.querySelectorAll(".navlink");
 
 gsap.registerPlugin(CustomEase);
 
+console.log("START");
 let aniDone = true;
-let lastPage = "home";
-let targetPage = "home";
-history.pushState({ page: "home" }, "", `/`);
+let lastPage = "gallery";
+let targetPage = "gallery";
+history.pushState({ page: "gallery" }, "", `/gallery`);
 
 function titleAnimateIn() {
     gsap.fromTo(
@@ -363,6 +364,7 @@ window.addEventListener("popstate", (event) => {
 window.addEventListener("DOMContentLoaded", () => {
     const path = window.location.pathname.substring(1); // Remove the leading slash
     if (path) {
+        // history.pushState({ page: "home" }, "", `/`);
         showContent(path);
     }
 });
