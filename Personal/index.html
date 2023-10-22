@@ -5,6 +5,7 @@
         <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="./styles/style.css" />
+        <link rel="stylesheet" href="./styles/base.css" />
         <title>Andrew Lai</title>
     </head>
     <body>
@@ -24,310 +25,330 @@
                 </div>
             </div>
             <div id="projects-content" class="content">
-                <div id="content-wrap">
-                    <div id="nav-wrap">
-                        <div class="move-up back-center">
-                            <p
-                                id="home-button"
-                                class="button-animation navlink project-back"
+                <div id="gsap-wrap">
+                    <div id="content-wrap-project">
+                        <div id="nav-wrap">
+                            <div class="move-up back-center">
+                                <p
+                                    id="home-button"
+                                    class="button-animation navlink project-back"
+                                >
+                                    BACK
+                                </p>
+                            </div>
+                        </div>
+
+                        <div id="project-main">
+                            <div
+                                class="project-box"
+                                style="
+                                    text-align: center;
+                                    font-family: NB;
+                                    font-size: 12px;
+                                "
                             >
-                                BACK
-                            </p>
-                        </div>
-                    </div>
+                                <i class="arrow left"></i> 01
+                            </div>
+                            <div class="project-box">
+                                <div class="project-img"></div>
+                                <div class="project-info">
+                                    <div class="project-title">POLA_PARTY</div>
+                                    <div>
+                                        <p
+                                            style="
+                                                text-align: center;
+                                                font-size: 0.2vw;
+                                            "
+                                        >
+                                            STATUS : INCOMPLETE
+                                        </p>
+                                    </div>
+                                    <div>
+                                        Fork of ... modified to ... description
+                                        blah blah blah etc.
+                                    </div>
+                                    <div>
+                                        <ul>
+                                            <li>JavaScript</li>
+                                            <li>Express</li>
+                                            <li class="tag-special">
+                                                PostgreSQL
+                                            </li>
+                                            <li class="tag-special">Docker</li>
+                                            <li class="tag-special">Azure</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-box">
+                                <div class="project-img"></div>
+                                <div class="project-info">
+                                    <div class="project-title">
+                                        PERSONAL_WEBSITE
+                                    </div>
+                                    <div>
+                                        <p
+                                            style="
+                                                text-align: center;
+                                                font-size: 0.2vw;
+                                            "
+                                        >
+                                            STATUS : LIVE
+                                        </p>
+                                    </div>
+                                    <div>
+                                        Fork of ... modified to ... description
+                                        blah blah blah etc.
+                                    </div>
+                                    <div>
+                                        <ul>
+                                            <li>JavaScript</li>
+                                            <li>GSAP</li>
+                                            <li>History API</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-box">
+                                <div class="project-img"></div>
+                                <div class="project-info">
+                                    <div class="project-title">
+                                        DEVPOST_SCRAPER
+                                    </div>
+                                    <div>
+                                        <p
+                                            style="
+                                                text-align: center;
+                                                font-size: 0.2vw;
+                                            "
+                                        >
+                                            STATUS : COMPLETE
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p>
+                                            Python scraper that collects
+                                            submission data from any given
+                                            number of Devpost hackathon pages
+                                            and returns project data.
+                                            <br /><br />
+                                            Originally forked from Lynn Samson's
+                                            Python Devpost Scraper, I
+                                            implemented an improved description
+                                            retrieval system using extractive
+                                            summarization through spaCy, added
+                                            multiple URL support, and the
+                                            ability to specify the number of
+                                            submissions from each page of each
+                                            hackathon.
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <ul>
+                                            <li>Python</li>
+                                            <li class="tag-special">spaCy</li>
+                                            <li class="tag-special">NLP</li>
+                                            <li class="tag-special">Flask</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-box">
+                                <div class="project-img"></div>
+                                <div class="project-info">
+                                    <div class="project-title">
+                                        MYSIPS_WEB_APPLICATION
+                                    </div>
+                                    <div>
+                                        <p
+                                            style="
+                                                text-align: center;
+                                                font-size: 0.2vw;
+                                            "
+                                        >
+                                            STATUS : INCOMPLETE
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p>
+                                            Website application that records and
+                                            stores drinks from your favourite
+                                            beverage locations. <br /><br />I
+                                            used this project to learn the
+                                            fundamentals of React's component
+                                            life cycle, as well as educate
+                                            myself around the importance and
+                                            difficulty surrounding effective
+                                            authentication systems. I
+                                            implemented a small backend server
+                                            which allowed me to retrieve drinks
+                                            from a MySQL database as well handle
+                                            all login data.
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <ul>
+                                            <li class="tag-special">
+                                                TypeScript
+                                            </li>
+                                            <li class="tag-special">React</li>
+                                            <li>Express</li>
+                                            <li class="tag-special">MySQL</li>
+                                            <li>Passport.js</li>
+                                            <li class="tag-special">
+                                                REST API
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-box">
+                                <div class="project-img"></div>
+                                <div class="project-info">
+                                    <div class="project-title">OUTFITLB_PY</div>
+                                    <div>
+                                        Fork of ... modified to ... description
+                                        blah blah blah etc.
+                                    </div>
+                                    <div>
+                                        <ul>
+                                            <li>Python</li>
+                                            <li>PyMongo</li>
+                                            <li class="tag-special">MongoDB</li>
+                                            <li>Tkinter</li>
+                                            <li class="tag-special">
+                                                scikit-learn
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-box">
+                                <div class="project-img"></div>
+                                <div class="project-info">
+                                    <div class="project-title">
+                                        IRRIGATION_PREDICTOR
+                                    </div>
 
-                    <div id="project-main">
-                        <div
-                            class="project-box"
-                            style="
-                                text-align: center;
-                                font-family: NB;
-                                font-size: 12px;
-                            "
-                        >
-                            <i class="arrow left"></i> 01
-                        </div>
-                        <div class="project-box">
-                            <div class="project-img"></div>
-                            <div class="project-info">
-                                <div class="project-title">POLA_PARTY</div>
-                                <div>
-                                    <p
-                                        style="
-                                            text-align: center;
-                                            font-size: 0.2vw;
-                                        "
-                                    >
-                                        STATUS : INCOMPLETE
-                                    </p>
-                                </div>
-                                <div>
-                                    Fork of ... modified to ... description blah
-                                    blah blah etc.
-                                </div>
-                                <div>
-                                    <ul>
-                                        <li>JavaScript</li>
-                                        <li>Express</li>
-                                        <li class="tag-special">PostgreSQL</li>
-                                        <li class="tag-special">Docker</li>
-                                        <li class="tag-special">Azure</li>
-                                    </ul>
+                                    <div>
+                                        Fork of ... modified to ... description
+                                        blah blah blah etc.
+                                    </div>
+                                    <div>
+                                        <ul>
+                                            <li>Python</li>
+                                            <li>Matplotlib</li>
+                                            <li>Requests</li>
+                                            <li class="tag-special">
+                                                REST API
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="project-box">
-                            <div class="project-img"></div>
-                            <div class="project-info">
-                                <div class="project-title">
-                                    PERSONAL_WEBSITE
-                                </div>
-                                <div>
-                                    <p
-                                        style="
-                                            text-align: center;
-                                            font-size: 0.2vw;
-                                        "
-                                    >
-                                        STATUS : LIVE
-                                    </p>
-                                </div>
-                                <div>
-                                    Fork of ... modified to ... description blah
-                                    blah blah etc.
-                                </div>
-                                <div>
-                                    <ul>
-                                        <li>JavaScript</li>
-                                        <li>GSAP</li>
-                                        <li>History API</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-box">
-                            <div class="project-img"></div>
-                            <div class="project-info">
-                                <div class="project-title">DEVPOST_SCRAPER</div>
-                                <div>
-                                    <p
-                                        style="
-                                            text-align: center;
-                                            font-size: 0.2vw;
-                                        "
-                                    >
-                                        STATUS : COMPLETE
-                                    </p>
-                                </div>
-                                <div>
-                                    <p>
-                                        Python scraper that collects submission
-                                        data from any given number of Devpost
-                                        hackathon pages and returns project
-                                        data. <br /><br />
-                                        Originally forked from Lynn Samson's
-                                        Python Devpost Scraper, I implemented an
-                                        improved description retrieval system
-                                        using extractive summarization through
-                                        spaCy, added multiple URL support, and
-                                        the ability to specify the number of
-                                        submissions from each page of each
-                                        hackathon.
-                                    </p>
-                                </div>
-                                <div>
-                                    <ul>
-                                        <li>Python</li>
-                                        <li class="tag-special">spaCy</li>
-                                        <li class="tag-special">NLP</li>
-                                        <li class="tag-special">Flask</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-box">
-                            <div class="project-img"></div>
-                            <div class="project-info">
-                                <div class="project-title">
-                                    MYSIPS_WEB_APPLICATION
-                                </div>
-                                <div>
-                                    <p
-                                        style="
-                                            text-align: center;
-                                            font-size: 0.2vw;
-                                        "
-                                    >
-                                        STATUS : INCOMPLETE
-                                    </p>
-                                </div>
-                                <div>
-                                    <p>
-                                        Website application that records and
-                                        stores drinks from your favourite
-                                        beverage locations. <br /><br />I used
-                                        this project to learn the fundamentals
-                                        of React's component life cycle, as well
-                                        as educate myself around the importance
-                                        and difficulty surrounding effective
-                                        authentication systems. I implemented a
-                                        small backend server which allowed me to
-                                        retrieve drinks from a MySQL database as
-                                        well handle all login data.
-                                    </p>
-                                </div>
-                                <div>
-                                    <ul>
-                                        <li class="tag-special">TypeScript</li>
-                                        <li class="tag-special">React</li>
-                                        <li>Express</li>
-                                        <li class="tag-special">MySQL</li>
-                                        <li>Passport.js</li>
-                                        <li class="tag-special">REST API</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-box">
-                            <div class="project-img"></div>
-                            <div class="project-info">
-                                <div class="project-title">OUTFITLB_PY</div>
-                                <div>
-                                    Fork of ... modified to ... description blah
-                                    blah blah etc.
-                                </div>
-                                <div>
-                                    <ul>
-                                        <li>Python</li>
-                                        <li>PyMongo</li>
-                                        <li class="tag-special">MongoDB</li>
-                                        <li>Tkinter</li>
-                                        <li class="tag-special">
-                                            scikit-learn
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-box">
-                            <div class="project-img"></div>
-                            <div class="project-info">
-                                <div class="project-title">
-                                    IRRIGATION_PREDICTOR
-                                </div>
+                            <div class="project-box">
+                                <div class="project-img"></div>
+                                <div class="project-info">
+                                    <div class="project-title">
+                                        CROSSY ROAD 3D
+                                    </div>
 
-                                <div>
-                                    Fork of ... modified to ... description blah
-                                    blah blah etc.
-                                </div>
-                                <div>
-                                    <ul>
-                                        <li>Python</li>
-                                        <li>Matplotlib</li>
-                                        <li>Requests</li>
-                                        <li class="tag-special">REST API</li>
-                                    </ul>
+                                    <div>
+                                        Fork of ... modified to ... description
+                                        blah blah blah etc.
+                                    </div>
+                                    <div>
+                                        <ul>
+                                            <li>Python</li>
+                                            <li>Matplotlib</li>
+                                            <li>Tkinter</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="project-box">
-                            <div class="project-img"></div>
-                            <div class="project-info">
-                                <div class="project-title">CROSSY ROAD 3D</div>
+                            <div class="project-box">
+                                <div class="project-img"></div>
+                                <div class="project-info">
+                                    <div class="project-title">
+                                        MOV-E REVIEWS
+                                    </div>
+                                    <div>
+                                        Fork of ... modified to ... description
+                                        blah blah blah etc.
+                                    </div>
+                                    <div>
+                                        <ul>
+                                            <li>JavaScript</li>
+                                            <li>Express</li>
+                                            <li class="tag-special">Azure</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-box">
+                                <div class="project-img"></div>
+                                <div class="project-info">
+                                    <div class="project-title">UBC VSA</div>
+                                    <div>
+                                        Fork of ... modified to ... description
+                                        blah blah blah etc.
+                                    </div>
+                                    <div>
+                                        <ul>
+                                            <li>Photoshop</li>
+                                            <li>Illustrator</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-box">
+                                <div class="project-img"></div>
+                                <div class="project-info">
+                                    <div class="project-title">
+                                        RED WINE ANALYSIS
+                                    </div>
 
-                                <div>
-                                    Fork of ... modified to ... description blah
-                                    blah blah etc.
-                                </div>
-                                <div>
-                                    <ul>
-                                        <li>Python</li>
-                                        <li>Matplotlib</li>
-                                        <li>Tkinter</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-box">
-                            <div class="project-img"></div>
-                            <div class="project-info">
-                                <div class="project-title">MOV-E REVIEWS</div>
-                                <div>
-                                    Fork of ... modified to ... description blah
-                                    blah blah etc.
-                                </div>
-                                <div>
-                                    <ul>
-                                        <li>JavaScript</li>
-                                        <li>Express</li>
-                                        <li class="tag-special">Azure</li>
-                                    </ul>
+                                    <div>
+                                        Fork of ... modified to ... description
+                                        blah blah blah etc.
+                                    </div>
+                                    <div>
+                                        <ul>
+                                            <li>R</li>
+                                            <li>Tidyverse</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="project-box">
-                            <div class="project-img"></div>
-                            <div class="project-info">
-                                <div class="project-title">UBC VSA</div>
-                                <div>
-                                    Fork of ... modified to ... description blah
-                                    blah blah etc.
-                                </div>
-                                <div>
-                                    <ul>
-                                        <li>Photoshop</li>
-                                        <li>Illustrator</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-box">
-                            <div class="project-img"></div>
-                            <div class="project-info">
-                                <div class="project-title">
-                                    RED WINE ANALYSIS
-                                </div>
-
-                                <div>
-                                    Fork of ... modified to ... description blah
-                                    blah blah etc.
-                                </div>
-                                <div>
-                                    <ul>
-                                        <li>R</li>
-                                        <li>Tidyverse</li>
-                                    </ul>
+                            <div class="project-box">
+                                <div class="project-img"></div>
+                                <div class="project-info">
+                                    <div class="project-title">
+                                        P6.JPG & XEGATIV
+                                    </div>
+                                    <div>
+                                        Fork of ... modified to ... description
+                                        blah blah blah etc.
+                                    </div>
+                                    <div>
+                                        <ul>
+                                            <li>Photoshop</li>
+                                            <li>Illustrator</li>
+                                            <li>Premier Pro</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="project-box">
-                            <div class="project-img"></div>
-                            <div class="project-info">
-                                <div class="project-title">
-                                    P6.JPG & XEGATIV
-                                </div>
-                                <div>
-                                    Fork of ... modified to ... description blah
-                                    blah blah etc.
-                                </div>
-                                <div>
-                                    <ul>
-                                        <li>Photoshop</li>
-                                        <li>Illustrator</li>
-                                        <li>Premier Pro</li>
-                                    </ul>
-                                </div>
+                            <div
+                                class="project-box"
+                                style="
+                                    text-align: center;
+                                    font-family: NB;
+                                    font-size: 12px;
+                                "
+                            >
+                                END // ABYSS <i class="arrow right"></i>
                             </div>
-                        </div>
-                        <div
-                            class="project-box"
-                            style="
-                                text-align: center;
-                                font-family: NB;
-                                font-size: 12px;
-                            "
-                        >
-                            END // ABYSS <i class="arrow right"></i>
                         </div>
                     </div>
                 </div>
@@ -377,38 +398,153 @@
                     <div id="gallery-wrap">
                         <div class="gallery-row">
                             <div>
-                                <p>VSA_MERCH.JPG</p>
-                                <img src="assets/Scene 1.png" />
+                                <div class="p-wrap">
+                                    <p>./VSA_MERCH.JPG</p>
+                                </div>
+
+                                <div class="img-wrap">
+                                    <img src="assets/Scene 1.png" />
+                                </div>
                             </div>
                             <div>
-                                <p>XEG_P1.JPG</p>
-                                <img src="assets/Scene 1.png" />
+                                <div class="p-wrap">
+                                    <p>VSA_MERCH.JPG</p>
+                                </div>
+
+                                <div class="img-wrap">
+                                    <img src="assets/Scene 1.png" />
+                                </div>
                             </div>
                             <div>
-                                <p>BLEND.JPG</p>
-                                <img src="assets/Scene 1.png" />
-                            </div>
-                            <div>
-                                <p>BLEND.JPG</p>
-                                <img src="assets/Scene 1.png" />
-                            </div>
-                            <div>
-                                <p>BLEND.JPG</p>
-                                <img src="assets/Scene 1.png" />
+                                <div class="p-wrap">
+                                    <p>VSA_MERCH.JPG</p>
+                                </div>
+
+                                <div class="img-wrap">
+                                    <img src="assets/Scene 1.png" />
+                                </div>
                             </div>
                         </div>
                         <div class="gallery-row">
                             <div>
-                                <p>VSA_MERCH.JPG</p>
-                                <img src="assets/Scene 1.png" />
+                                <div class="p-wrap">
+                                    <p>VSA_MERCH.JPG</p>
+                                </div>
+
+                                <div class="img-wrap">
+                                    <img src="assets/Scene 1.png" />
+                                </div>
                             </div>
                             <div>
-                                <p>XEG_P1.JPG</p>
-                                <img src="assets/Scene 1.png" />
+                                <div class="p-wrap">
+                                    <p>VSA_MERCH.JPG</p>
+                                </div>
+
+                                <div class="img-wrap">
+                                    <img src="assets/Scene 1.png" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="gallery-wrap">
+                        <div class="gallery-row">
+                            <div>
+                                <div class="p-wrap">
+                                    <p>VSA_MERCH.JPG</p>
+                                </div>
+
+                                <div class="img-wrap">
+                                    <img src="assets/Scene 1.png" />
+                                </div>
                             </div>
                             <div>
-                                <p>BLEND.JPG</p>
-                                <img src="assets/Scene 1.png" />
+                                <div class="p-wrap">
+                                    <p>VSA_MERCH.JPG</p>
+                                </div>
+
+                                <div class="img-wrap">
+                                    <img src="assets/Scene 1.png" />
+                                </div>
+                            </div>
+                            <div>
+                                <div class="p-wrap">
+                                    <p>VSA_MERCH.JPG</p>
+                                </div>
+
+                                <div class="img-wrap">
+                                    <img src="assets/Scene 1.png" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery-row">
+                            <div>
+                                <div class="p-wrap">
+                                    <p>VSA_MERCH.JPG</p>
+                                </div>
+
+                                <div class="img-wrap">
+                                    <img src="assets/Scene 1.png" />
+                                </div>
+                            </div>
+                            <div>
+                                <div class="p-wrap">
+                                    <p>VSA_MERCH.JPG</p>
+                                </div>
+
+                                <div class="img-wrap">
+                                    <img src="assets/Scene 1.png" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="gallery-wrap">
+                        <div class="gallery-row">
+                            <div>
+                                <div class="p-wrap">
+                                    <p>VSA_MERCH.JPG</p>
+                                </div>
+
+                                <div class="img-wrap">
+                                    <img src="assets/Scene 1.png" />
+                                </div>
+                            </div>
+                            <div>
+                                <div class="p-wrap">
+                                    <p>VSA_MERCH.JPG</p>
+                                </div>
+
+                                <div class="img-wrap">
+                                    <img src="assets/Scene 1.png" />
+                                </div>
+                            </div>
+                            <div>
+                                <div class="p-wrap">
+                                    <p>VSA_MERCH.JPG</p>
+                                </div>
+
+                                <div class="img-wrap">
+                                    <img src="assets/Scene 1.png" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery-row">
+                            <div>
+                                <div class="p-wrap">
+                                    <p>VSA_MERCH.JPG</p>
+                                </div>
+
+                                <div class="img-wrap">
+                                    <img src="assets/Scene 1.png" />
+                                </div>
+                            </div>
+                            <div>
+                                <div class="p-wrap">
+                                    <p>VSA_MERCH.JPG</p>
+                                </div>
+
+                                <div class="img-wrap">
+                                    <img src="assets/Scene 1.png" />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -487,6 +623,7 @@
         <script type="module" src="/horscroll.js"></script>
         <script type="module" src="/text.js"></script>
         <script type="module" src="/project.js"></script>
+        <script type="module" src="/gallery-ani.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/CustomEase.min.js"></script>
     </body>
 </html>

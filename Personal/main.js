@@ -11,9 +11,9 @@ gsap.registerPlugin(CustomEase);
 
 console.log("START");
 let aniDone = true;
-let lastPage = "gallery";
-let targetPage = "gallery";
-history.pushState({ page: "gallery" }, "", `/gallery`);
+let lastPage = "home";
+let targetPage = "home";
+history.pushState({ page: "home" }, "", `/`);
 
 function titleAnimateIn() {
     gsap.fromTo(
@@ -171,6 +171,12 @@ function showContent(id, onComplete = {}) {
 
     console.log("Showing content: " + id);
 
+    // // show content
+    const content = document.getElementById(id + "-content");
+    if (content) {
+        content.style.display = "block";
+    }
+
     if (id === "home") {
         heroContainer.style.display = "flex";
         contentContainer.style.display = "none";
@@ -191,12 +197,12 @@ function showContent(id, onComplete = {}) {
 
             projectsAnimateIn();
         }
-    }
+        if (id === "gallery") {
+            document.body.style.overflow = "visible";
+            document.documentElement.style.overflow = "visible";
 
-    // // show content
-    const content = document.getElementById(id + "-content");
-    if (content) {
-        content.style.display = "block";
+            contentContainer.style.position = "relative";
+        }
     }
 }
 

@@ -10,7 +10,7 @@ let scrollTween = gsap.to(projects, {
     // ease: "none",
     scrollTrigger: {
         // invalidateOnRefresh: true,
-        trigger: "#content-container",
+        trigger: "#gsap-wrap",
         // pin so we do not over scroll
         pin: true,
         scrub: 1,
