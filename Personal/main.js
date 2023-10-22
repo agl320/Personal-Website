@@ -2,10 +2,13 @@ import gsap from "gsap";
 
 // .content is individual contents
 const contentContainers = document.querySelectorAll(".content");
+
 // #content-container is all contents together
 const contentContainer = document.getElementById("content-container");
 const heroContainer = document.getElementById("hero");
 const navLinks = document.querySelectorAll(".navlink");
+
+const projectsContent = document.getElementById("projects-content");
 
 gsap.registerPlugin(CustomEase);
 
@@ -192,16 +195,18 @@ function showContent(id, onComplete = {}) {
         linksAnimateIn(0, onComplete);
 
         if (id === "projects") {
+            projectsContent.style.display = "block";
+
             document.body.style.overflow = "visible";
             document.documentElement.style.overflow = "visible";
 
             projectsAnimateIn();
         }
         if (id === "gallery") {
+            projectsContent.style.display = "none";
+
             document.body.style.overflow = "visible";
             document.documentElement.style.overflow = "visible";
-
-            contentContainer.style.position = "relative";
         }
     }
 }
