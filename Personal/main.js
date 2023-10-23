@@ -40,9 +40,9 @@ gsap.registerPlugin(CustomEase);
 
 console.log("START");
 let aniDone = true;
-let lastPage = "home";
-let targetPage = "home";
-history.pushState({ page: "home" }, "", `/`);
+let lastPage = "gallery";
+let targetPage = "gallery";
+history.pushState({ page: "gallery" }, "", `/gallery`);
 
 function animateOut(onComplete = {}) {
     console.log("Animate out for gallery");
@@ -226,7 +226,7 @@ function projectsAnimateIn() {
         { opacity: 0, marginRight: 5 },
         {
             opacity: 1,
-            stagger: 0.02,
+            stagger: 0.03,
             delay: 0.3,
             duration: 0.8,
             ease: "power2.out",

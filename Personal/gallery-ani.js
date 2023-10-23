@@ -2,7 +2,7 @@ import gsap from "gsap";
 
 import Lenis from "@studio-freight/lenis";
 
-const lenis = new Lenis();
+const lenis = new Lenis({ duration: 1 });
 
 lenis.on("scroll", (e) => {
     console.log(e);
@@ -14,9 +14,6 @@ function raf(time) {
 }
 
 requestAnimationFrame(raf);
-
-// move all to main.js after
-// import (?)
 
 // entry animations
 // div moves up
