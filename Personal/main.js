@@ -10,6 +10,12 @@ const navLinks = document.querySelectorAll(".navlink");
 
 const projectsContent = document.getElementById("projects-content");
 
+const pArr = document.querySelectorAll(".p-wrap p");
+const pWrapArr = document.querySelectorAll(".p-wrap");
+const imgArr = document.querySelectorAll(".img-wrap img");
+
+// exit animations
+
 gsap.registerPlugin(CustomEase);
 
 console.log("START");
@@ -17,6 +23,74 @@ let aniDone = true;
 let lastPage = "home";
 let targetPage = "home";
 history.pushState({ page: "home" }, "", `/`);
+
+function animateOut(onComplete = {}) {
+    console.log("Animate out for gallery");
+
+    console.log(pArr);
+    console.log(pWrapArr);
+
+    pArr.forEach((item, index) => {
+        // start visible, just below
+
+        gsap.fromTo(
+            pWrapArr[index],
+            { opacity: 1 },
+            {
+                duration: 0.8,
+                stagger: 0.1,
+                opacity: 0,
+
+                ease: "ease.out",
+            }
+        );
+
+        gsap.fromTo(
+            imgArr,
+            { opacity: 1 },
+            {
+                duration: 0.8,
+                stagger: 0.1,
+                opacity: 0,
+                ease: "ease.out",
+                onComplete: onComplete,
+            }
+        );
+    });
+}
+
+function animateIn(onComplete = {}) {
+    console.log("Animate in for gallery");
+
+    pArr.forEach((item, index) => {
+        // start visible, just below
+
+        gsap.fromTo(
+            pWrapArr[index],
+            { opacity: 0 },
+            {
+                duration: 0.8,
+                stagger: 0.1,
+                opacity: 1,
+                delay: 1.5,
+                ease: "ease.out",
+            }
+        );
+
+        gsap.fromTo(
+            imgArr,
+            { opacity: 0 },
+            {
+                duration: 0.8,
+                stagger: 0.1,
+                opacity: 1,
+                delay: 1.5,
+                ease: "ease.out",
+                onComplete: onComplete,
+            }
+        );
+    });
+}
 
 function titleAnimateIn() {
     gsap.fromTo(
@@ -198,15 +272,24 @@ function showContent(id, onComplete = {}) {
             projectsContent.style.display = "block";
 
             document.body.style.overflow = "visible";
+            document.body.style.overflowX = "hidden";
             document.documentElement.style.overflow = "visible";
 
             projectsAnimateIn();
-        }
-        if (id === "gallery") {
+        } else if (id === "gallery") {
             projectsContent.style.display = "none";
 
             document.body.style.overflow = "visible";
             document.documentElement.style.overflow = "visible";
+
+            animateIn();
+        } else if (id === "resume" || id === "about") {
+            projectsContent.style.display = "none";
+
+            document.body.style.overflow = "visible";
+            document.documentElement.style.overflow = "visible";
+
+            animateIn();
         }
     }
 }
