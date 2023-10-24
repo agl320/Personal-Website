@@ -113,6 +113,8 @@ function animateIn(onComplete = {}) {
 }
 
 function titleAnimateIn() {
+    // line height
+
     gsap.fromTo(
         ".title-animation",
         { y: 150 },
