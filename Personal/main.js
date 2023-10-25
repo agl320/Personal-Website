@@ -47,9 +47,6 @@ history.pushState({ page: "gallery" }, "", `/gallery`);
 function animateOut(onComplete = {}) {
     console.log("Animate out for gallery");
 
-    console.log(pArr);
-    console.log(pWrapArr);
-
     pArr.forEach((item, index) => {
         // start visible, just below
 
@@ -60,8 +57,6 @@ function animateOut(onComplete = {}) {
                 duration: 0.8,
                 stagger: 0.1,
                 opacity: 0,
-
-                ease: "ease.out",
             }
         );
 
@@ -72,7 +67,7 @@ function animateOut(onComplete = {}) {
                 duration: 0.8,
                 stagger: 0.1,
                 opacity: 0,
-                ease: "ease.out",
+
                 onComplete: onComplete,
             }
         );
@@ -93,7 +88,6 @@ function animateIn(onComplete = {}) {
                 stagger: 0.1,
                 opacity: 1,
                 delay: 1.5,
-                ease: "ease.out",
             }
         );
 
@@ -105,7 +99,7 @@ function animateIn(onComplete = {}) {
                 stagger: 0.1,
                 opacity: 1,
                 delay: 1.5,
-                ease: "ease.out",
+
                 onComplete: onComplete,
             }
         );
@@ -122,10 +116,6 @@ function titleAnimateIn() {
             delay: 0.3,
             y: 0,
             duration: 1.2,
-            ease: CustomEase.create(
-                "custom",
-                "M0,0 C0.054,0.376 0.034,0.293 0.121,0.527 0.153,0.614 0.187,0.724 0.297,0.815 0.492,0.906 0.881,1 1,1 "
-            ),
         }
     );
 
@@ -136,10 +126,6 @@ function titleAnimateIn() {
             delay: 0.3,
             y: 0,
             duration: 1.2,
-            ease: CustomEase.create(
-                "custom",
-                "M0,0 C0.054,0.376 0.034,0.293 0.121,0.527 0.153,0.614 0.187,0.724 0.297,0.815 0.492,0.906 0.881,1 1,1 "
-            ),
         }
     );
 }
@@ -152,10 +138,6 @@ function titleAnimateOut() {
             delay: 0,
             y: -150,
             duration: 1.2,
-            ease: CustomEase.create(
-                "custom",
-                "M0,0 C0.054,0.376 0.034,0.293 0.121,0.527 0.153,0.614 0.187,0.724 0.297,0.815 0.492,0.906 0.881,1 1,1 "
-            ),
         }
     );
     gsap.fromTo(
@@ -165,10 +147,6 @@ function titleAnimateOut() {
             delay: 0,
             y: 100,
             duration: 1.2,
-            ease: CustomEase.create(
-                "custom",
-                "M0,0 C0.054,0.376 0.034,0.293 0.121,0.527 0.153,0.614 0.187,0.724 0.297,0.815 0.492,0.906 0.881,1 1,1 "
-            ),
         }
     );
 }
@@ -184,10 +162,7 @@ function linksAnimateIn(delay = 0, onComplete = {}) {
             delay: delay,
             y: 0,
             duration: 1.2,
-            ease: CustomEase.create(
-                "custom",
-                "M0,0 C0.054,0.376 0.034,0.293 0.121,0.527 0.153,0.614 0.187,0.724 0.297,0.815 0.492,0.906 0.881,1 1,1 "
-            ),
+
             onComplete: onComplete,
         }
     );
@@ -202,10 +177,7 @@ function linksAnimateOut(delay = 0, onComplete = {}) {
             delay: delay,
             y: -30,
             duration: 1.2,
-            ease: CustomEase.create(
-                "custom",
-                "M0,0 C0.054,0.376 0.034,0.293 0.121,0.527 0.153,0.614 0.187,0.724 0.297,0.815 0.492,0.906 0.881,1 1,1 "
-            ),
+
             onComplete: onComplete,
         }
     );
@@ -231,7 +203,7 @@ function projectsAnimateIn() {
             stagger: 0.03,
             delay: 0.3,
             duration: 0.8,
-            ease: "power2.out",
+
             onComplete: () => {
                 projectBOXArr.forEach((item, index) => {
                     item.style.pointerEvents = "auto";
@@ -244,7 +216,7 @@ function projectsAnimateIn() {
     );
 }
 
-function projectsAnimateOut(onComplete) {
+function projectsAnimateOut(onComplete = {}) {
     gsap.fromTo(
         ".project-box",
         { opacity: 1, marginRight: 5 },
@@ -254,7 +226,7 @@ function projectsAnimateOut(onComplete) {
             stagger: 0,
             delay: 0,
             duration: 0.5,
-            ease: "power2.out",
+
             onComplete: onComplete,
         }
     );
@@ -277,6 +249,8 @@ function showContent(id, onComplete = {}) {
     }
 
     if (id === "home") {
+        console.log("Currently home.");
+
         heroContainer.style.display = "flex";
         contentContainer.style.display = "none";
         document.body.style.overflow = "hidden";
@@ -285,6 +259,8 @@ function showContent(id, onComplete = {}) {
         titleAnimateIn();
         linksAnimateIn(0.6, onComplete);
     } else {
+        console.log("Not home.");
+
         heroContainer.style.display = "none";
         contentContainer.style.display = "block";
 
@@ -307,6 +283,8 @@ function showContent(id, onComplete = {}) {
             document.documentElement.style.overflow = "visible";
 
             animateIn();
+
+            console.log("Done animate for gallery.");
         } else if (id === "resume" || id === "about") {
             projectsContent.style.display = "none";
 
@@ -384,7 +362,6 @@ navLinks.forEach((navLink) => {
                             });
                         });
                     } else {
-                        titleAnimateOut();
                         linksAnimateOut(0, () => {
                             showContent(id, () => {
                                 console.log(
