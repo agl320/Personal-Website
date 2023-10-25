@@ -44,66 +44,56 @@ let lastPage = "gallery";
 let targetPage = "gallery";
 history.pushState({ page: "gallery" }, "", `/gallery`);
 
-function animateOut(onComplete = {}) {
+function animateOut(onComplete = null) {
     console.log("Animate out for gallery");
 
-    pArr.forEach((item, index) => {
-        // start visible, just below
+    gsap.fromTo(
+        pWrapArr,
+        { opacity: 1 },
+        {
+            duration: 0.4,
+            opacity: 0,
+        }
+    );
 
-        gsap.fromTo(
-            pWrapArr[index],
-            { opacity: 1 },
-            {
-                duration: 0.8,
-                stagger: 0.1,
-                opacity: 0,
-            }
-        );
+    gsap.fromTo(
+        imgArr,
+        { opacity: 1 },
+        {
+            duration: 0.4,
+            opacity: 0,
 
-        gsap.fromTo(
-            imgArr,
-            { opacity: 1 },
-            {
-                duration: 0.8,
-                stagger: 0.1,
-                opacity: 0,
-
-                onComplete: onComplete,
-            }
-        );
-    });
+            onComplete: onComplete,
+        }
+    );
 }
 
-function animateIn(onComplete = {}) {
+function animateIn(onComplete = null) {
     console.log("Animate in for gallery");
 
-    pArr.forEach((item, index) => {
-        // start visible, just below
+    gsap.fromTo(
+        pWrapArr,
+        { opacity: 0 },
+        {
+            duration: 0.8,
+            stagger: 0.1,
+            opacity: 1,
+            delay: 1.5,
+        }
+    );
 
-        gsap.fromTo(
-            pWrapArr[index],
-            { opacity: 0 },
-            {
-                duration: 0.8,
-                stagger: 0.1,
-                opacity: 1,
-                delay: 1.5,
-            }
-        );
+    gsap.fromTo(
+        imgArr,
+        { opacity: 0 },
+        {
+            duration: 0.8,
+            stagger: 0.1,
+            opacity: 1,
+            delay: 1.5,
 
-        gsap.fromTo(
-            imgArr,
-            { opacity: 0 },
-            {
-                duration: 0.8,
-                stagger: 0.1,
-                opacity: 1,
-                delay: 1.5,
-
-                onComplete: onComplete,
-            }
-        );
-    });
+            onComplete: onComplete,
+        }
+    );
 }
 
 function titleAnimateIn() {
@@ -151,7 +141,7 @@ function titleAnimateOut() {
     );
 }
 
-function linksAnimateIn(delay = 0, onComplete = {}) {
+function linksAnimateIn(delay = 0, onComplete = null) {
     // STILL NEED TO ADD ANIMATE OF OUTER DIV IN OPPOSITE DIRECTION
     // button-animation-delay allows for separating if needed later
     gsap.fromTo(
@@ -168,7 +158,7 @@ function linksAnimateIn(delay = 0, onComplete = {}) {
     );
 }
 
-function linksAnimateOut(delay = 0, onComplete = {}) {
+function linksAnimateOut(delay = 0, onComplete = null) {
     gsap.fromTo(
         [".button-animation", ".button-animation-delay"],
         { y: 0 },
@@ -216,7 +206,7 @@ function projectsAnimateIn() {
     );
 }
 
-function projectsAnimateOut(onComplete = {}) {
+function projectsAnimateOut(onComplete = null) {
     gsap.fromTo(
         ".project-box",
         { opacity: 1, marginRight: 5 },
@@ -232,7 +222,7 @@ function projectsAnimateOut(onComplete = {}) {
     );
 }
 
-function showContent(id, onComplete = {}) {
+function showContent(id, onComplete = null) {
     // make every content container (about, projects, etc.) display none
     contentContainers.forEach((content) => {
         content.style.display = "none";
@@ -349,6 +339,7 @@ navLinks.forEach((navLink) => {
 
                     if (id == "home") {
                         projectsAnimateOut();
+                        animateOut();
                         linksAnimateOut(0, () => {
                             showContent(id, () => {
                                 console.log(
@@ -362,6 +353,7 @@ navLinks.forEach((navLink) => {
                             });
                         });
                     } else {
+                        titleAnimateOut();
                         linksAnimateOut(0, () => {
                             showContent(id, () => {
                                 console.log(
@@ -416,6 +408,7 @@ window.addEventListener("popstate", (event) => {
 
                 if (state.page == "home") {
                     projectsAnimateOut();
+                    animateOut();
                     linksAnimateOut(0, () => {
                         showContent(state.page, () => {
                             console.log(
