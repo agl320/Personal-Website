@@ -173,13 +173,13 @@ h1 {
 
 .project-box {
     /* margin: 10px; */
-    margin: 0.1vw;
+    margin: 1vw;
 
     font-family: "NeueHaasDisplay";
 
-    width: 20vh;
+    width: 40vh;
 
-    text-align: center;
+    /* text-align: center; */
 
     /* border-width: 2px;
     border-style: solid;
@@ -188,63 +188,82 @@ h1 {
 
 .project-img {
     /* height: 30vh; */
-    height: 10vh;
+    height: 20vh;
     width: 100%;
     background-color: rgb(78, 78, 78);
 
-    outline: rgb(168, 168, 168) solid 1px;
+    /* outline: rgb(144, 144, 144) solid 1px; */
 
-    transition: background-color 2s;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.252);
+    transition: box-shadow 2s;
 
     justify-content: center;
     text-align: center;
+    /* 
+    filter: grayscale(0.5); */
+    /* 
+    display: none; */
+    border-radius: 5px;
 }
 
 .project-img:hover {
     /* height: 30vh; */
     /* height: 220px;
     width: 100%; */
-    background-color: rgb(119, 119, 119);
-    transition: background-color 0.2s;
-    /* transition: scale 0.2s;
 
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.69);
+
+    transition: box-shadow 0.2s;
+    /* transition: filter 0.2s; */
+    /* 
     scale: 1 1.2; */
+    /* filter: grayscale(0); */
 }
 
 .project-title {
     /* font-size: 1em; */
     font-weight: bold;
-    font-family: "NB";
 
-    text-align: center;
+    /* text-align: center; */
 }
 
-.project-info {
+/* .project-info {
     display: none;
-}
+} */
 
 .project-info div {
     /* margin-top: 20px; */
-    font-size: clamp(4px, 0.6vw, 5px);
 
-    /* margin-left: 10px; */
-    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
     /* margin-bottom: 5px; */
 
     /* text-align: left; */
 }
 
+.project-description {
+    font-size: clamp(4px, 1vw, 15px);
+}
+
 .project-info div p {
     /* margin-top: 20px; */
-    font-size: clamp(4px, 0.6vw, 5px);
+    font-size: clamp(4px, 0.8vw, 12px);
     font-family: "NB";
 
     /* margin-left: 10px; */
     margin-top: 5px;
     margin-bottom: 5px;
+}
 
+.justify {
     text-align: justify;
     text-justify: inter-character;
+}
+
+.project-status {
+    text-align: center;
+    font-size: clamp(4px, 0.8vw, 12px);
 }
 
 /* ul {
@@ -263,14 +282,14 @@ ul > li {
     display: inline-block;
 
     background-color: rgb(53, 53, 53);
-    padding: 2px;
+    padding: 8px;
 
-    /* border-radius: 5px; */
+    border-radius: 5px;
 
     /* margin-bottom: 2px; */
     /* 
     font-size: 0.7em; */
-    font-size: max(3px, 0.18vw);
+    font-size: max(5px, 0.6vw);
     font-family: "NB";
 }
 
@@ -390,4 +409,117 @@ ul > li {
 
 ::-webkit-scrollbar-thumb:window-inactive {
     background: rgba(255, 255, 255, 0.3);
+}
+
+span {
+    position: relative;
+    display: block;
+    cursor: pointer;
+}
+
+span:before,
+span:after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 1.5px;
+    top: 95%;
+    margin-top: -0.5px;
+    background: #fff;
+}
+
+span:before {
+    left: -2.5px;
+}
+span:after {
+    right: 2.5px;
+    background: #fff;
+    transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+span:hover:before {
+    background: #fff;
+    width: 110%;
+    transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+span:hover:after {
+    background: transparent;
+    width: 110%;
+    transition: 0s;
+}
+
+.prev-title {
+    margin-bottom: 10px;
+
+    display: flex;
+    justify-content: space-between;
+}
+.prev-title p {
+    text-align: center;
+    font-family: "NB";
+    font-size: 1.2vh;
+}
+
+#img-vsa {
+    background-image: url("../assets/VSA/VSA-1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#img-xegativ {
+    background-image: url("../assets/xegativ/xegativ-grid.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#img-redwine {
+    background-image: url("../assets/redwine/redwine-plot.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#img-move {
+    background-image: url("../assets/mov-e/move-main-stretch.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#img-cr {
+    background-image: url("../assets/crossyroad/crossyroad.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#img-outfit {
+    background-image: url("../assets/outfitlb/outfit-ss.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#img-mysips {
+    background-image: url("../assets/mysips/main.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#img-devpost {
+    background-image: url("../assets/devpost-scraper/devpost.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#img-folio {
+    background-image: url("../assets/folio/main.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 }
