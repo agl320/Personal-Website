@@ -190,8 +190,8 @@ function projectsAnimateIn() {
         { opacity: 0, marginRight: 5 },
         {
             opacity: 1,
-            stagger: 0.03,
-            delay: 0.3,
+            stagger: 0.1,
+            delay: 1.2,
             duration: 0.8,
 
             onComplete: () => {

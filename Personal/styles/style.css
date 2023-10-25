@@ -151,9 +151,9 @@ h1 {
 #project-main {
     margin: 0;
     position: absolute;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+    top: 25%;
+    /* -ms-transform: translateY(-50%);
+    transform: translateY(-50%); */
 
     display: flex;
 
@@ -497,14 +497,14 @@ span:hover:after {
 }
 
 #img-outfit {
-    background-image: url("../assets/outfitlb/outfit-ss.png");
+    background-image: url("../assets/outfitlb/outfitlb-concept.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
 }
 
 #img-mysips {
-    background-image: url("../assets/mysips/main.png");
+    background-image: url("../assets/mysips/section-hero.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
