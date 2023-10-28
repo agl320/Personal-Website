@@ -9,6 +9,71 @@
         <title>Andrew Lai</title>
     </head>
     <body>
+        <div id="alt-view">
+            <div id="alt-col-wrap">
+                <div class="alt-col"><p>2023-10-27</p></div>
+                <div class="alt-col"></div>
+
+                <div class="alt-col"><p>00"</p></div>
+                <div class="alt-col"></div>
+                <div class="alt-col"><p>01"</p></div>
+            </div>
+            <div>
+                <h1 class="alt-title">ANDREW LAI</h1>
+            </div>
+            <div>
+                <p>
+                    Hi there! My name is Andrew Lai and I am a Vancouver-based
+                    second-year computing engineering student.
+                    <br /><br />
+                    Being interested in various mediums of topics varying from
+                    graphic design to deep learning and pattern recognition, I
+                    often find myself enjoying working on any project — feel
+                    free to contact me to discuss anything.
+                </p>
+            </div>
+            <div id="alt-col-wrap">
+                <div class="alt-col"><p>Contact</p></div>
+                <div class="alt-col">
+                    <p>.</p>
+                    <p>.</p>
+                    <p>Email</p>
+                    <p>Github</p>
+                    <p>Linkedin</p>
+                    <p>Instagram</p>
+                </div>
+                <div class="alt-col"></div>
+
+                <div class="alt-col"></div>
+                <div class="alt-col"><p>01"</p></div>
+            </div>
+
+            <!--
+
+            <div><p>View full site on desktop</p></div>
+
+            <div>
+                <p>
+                    Hi there! My name is Andrew Lai and I am a Vancouver-based
+                    second-year computing engineering student. Being interested
+                    in various mediums of topics varying from graphic design to
+                    deep learning and pattern recognition, I often find myself
+                    enjoying working on any project — feel free to contact me to
+                    discuss anything.
+                </p>    
+            </div>
+            <div>
+                <p>Email</p>
+                <p>Resume</p>
+            </div>
+            <div>
+                <p>Github</p>
+                <p>Linkedin</p>
+            </div>
+            <div>
+                <p>01</p>
+            </div> -->
+        </div>
         <div id="content-container">
             <div id="about-content" class="content">
                 <div id="content-wrap">
@@ -18,7 +83,7 @@
                                 id="home-button"
                                 class="button-animation navlink"
                             >
-                                BACK
+                                <a>BACK</a>
                             </p>
                         </div>
                     </div>
@@ -33,32 +98,31 @@
                                     id="home-button"
                                     class="button-animation navlink project-back"
                                 >
-                                    BACK
+                                    <a>BACK</a>
                                 </p>
                             </div>
                         </div>
 
                         <div id="project-main">
-                            <div
-                                class="project-box"
-                                style="
-                                    text-align: center;
-                                    font-family: NB;
-                                    font-size: 1.2vh;
-                                    margin-bottom: 10px;
-                                "
-                            >
-                                <i class="arrow left"></i> SCROLL DOWN
-                                <i class="arrow right"></i>
+                            <div class="project-box">
+                                <div
+                                    class="prev-title"
+                                    style="justify-content: center"
+                                >
+                                    <p>
+                                        <i class="arrow left"></i> SCROLL DOWN
+                                        <i class="arrow right"></i>
+                                    </p>
+                                </div>
                             </div>
                             <div class="project-box">
                                 <div class="prev-title">
-                                    <p>./POLA_PARTY/</p>
-                                    <p>STATUS: 23%</p>
+                                    <p>./UBC_DSCI/</p>
+                                    <p>STATUS: 8%</p>
                                 </div>
-                                <div class="project-img"></div>
+                                <div class="project-img" id="img-dsci"></div>
                                 <div class="project-info">
-                                    <div class="project-title">POLA_PARTY</div>
+                                    <div class="project-title">PCA 2024</div>
                                     <!-- <div>
                                         <p class="project-status">
                                             STATUS : INCOMPLETE
@@ -66,14 +130,59 @@
                                     </div> -->
                                     <div>
                                         <p class="project-description">
-                                            Fork of ... modified to ...
-                                            description blah blah blah etc.
+                                            Lead UI/UX designer for PCA 2024, a
+                                            conference held by UBC DSCI Club.
+                                            <br />
+                                            <br />
+                                            Worked (still working...) closely
+                                            with a team of experienced web
+                                            developers to design and deploy a
+                                            revised and improved version of
+                                            PCA's 2023 website.
                                         </p>
                                     </div>
                                     <div>
                                         <ul>
                                             <li>JavaScript</li>
+                                            <li class="tag-special">React</li>
                                             <li>Express</li>
+                                            <li>MUI</li>
+                                            <li>Tailwind</li>
+                                            <li>Figma</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-box">
+                                <div class="prev-title">
+                                    <p>./POLA_PARTY/</p>
+                                    <p>STATUS: 23%</p>
+                                </div>
+                                <div class="project-img" id="img-pp"></div>
+                                <div class="project-info">
+                                    <div class="project-title">POLA PARTY</div>
+                                    <!-- <div>
+                                        <p class="project-status">
+                                            STATUS : INCOMPLETE
+                                        </p>
+                                    </div> -->
+                                    <div>
+                                        <p class="project-description">
+                                            A web application that catalogues
+                                            polaroid pictures.
+                                            <br />
+                                            <br />
+                                            Created for personal use with the
+                                            hopes of maximising user experience.
+                                            Just a fun project that we hope
+                                            helps us with learning Docker and
+                                            virtual environments.
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <ul>
+                                            <li>Python</li>
+                                            <li>Flask</li>
                                             <li class="tag-special">
                                                 PostgreSQL
                                             </li>
@@ -83,10 +192,11 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="project-box">
                                 <div class="prev-title">
                                     <p>./PERSONAL_WEBSITE/</p>
-                                    <p>STATUS: COMPLETE</p>
+                                    <p>STATUS: LIVE</p>
                                 </div>
                                 <div class="project-img" id="img-folio"></div>
                                 <div class="project-info">
@@ -100,8 +210,25 @@
                                     </div> -->
                                     <div>
                                         <p class="justify project-description">
-                                            Fork of ... modified to ...
-                                            description blah blah blah etc.
+                                            A single-paged application to host
+                                            all my projects and designs in one
+                                            place.
+                                            <br />
+                                            <br />
+                                            This is my first time creating a
+                                            single-paged application with
+                                            History API, and thus I apologise
+                                            for any bugs that may arise. This is
+                                            also my first ever attempt at
+                                            creating a portfolio. Inspired by
+                                            the works of Aristide Benoit and Ben
+                                            Mingo, I hoped to create a simple
+                                            yet fluid and content-rich site for
+                                            anyone interested in my work.<br /><br />I
+                                            hope in the future to learn more
+                                            about WebGL and animating, and be
+                                            able to create such works without
+                                            the use of any libraries like GSAP.
                                         </p>
                                     </div>
                                     <div>
@@ -121,7 +248,7 @@
                                 <div class="project-img" id="img-devpost"></div>
                                 <div class="project-info">
                                     <div class="project-title">
-                                        DEVPOST_SCRAPER
+                                        DEVPOST SCRAPER
                                     </div>
                                     <!-- <div>
                                         <p class="project-status">
@@ -129,21 +256,21 @@
                                         </p>
                                     </div> -->
                                     <div>
-                                        <p class="justify">
-                                            Python scraper that collects
-                                            submission data from any given
-                                            number of Devpost hackathon pages
-                                            and returns project data.
+                                        <p class="justify project-description">
+                                            Web scraper that collects submission
+                                            data from any given number of
+                                            Devpost hackathon pages and returns
+                                            project data.
                                             <br /><br />
                                             Originally forked from Lynn Samson's
                                             Python Devpost Scraper, I
                                             implemented an improved description
                                             retrieval system using extractive
                                             summarization through spaCy, added
-                                            multiple URL support, and the
-                                            ability to specify the number of
-                                            submissions from each page of each
-                                            hackathon.
+                                            multi-hackathon support, additional
+                                            customization for users, and
+                                            deployed it as a Flask-based web
+                                            app.
                                         </p>
                                     </div>
                                     <div>
@@ -164,7 +291,7 @@
                                 <div class="project-img" id="img-mysips"></div>
                                 <div class="project-info">
                                     <div class="project-title">
-                                        MYSIPS_WEB_APPLICATION
+                                        MYSIPS WEB APPLICATION
                                     </div>
                                     <!-- <div>
                                         <p
@@ -177,20 +304,21 @@
                                         </p>
                                     </div> -->
                                     <div>
-                                        <p>
+                                        <p class="justify project-description">
                                             Website application that records and
                                             stores drinks from your favourite
-                                            beverage locations. <br /><br />I
-                                            used this project to learn the
-                                            fundamentals of React's component
-                                            life cycle, as well as educate
-                                            myself around the importance and
-                                            difficulty surrounding effective
-                                            authentication systems. I
-                                            implemented a small backend server
-                                            which allowed me to retrieve drinks
-                                            from a MySQL database as well handle
-                                            all login data.
+                                            beverage locations.
+                                            <br /><br />I used this project to
+                                            further learn about the fundamentals
+                                            of React's component life cycle, as
+                                            well as educate myself around the
+                                            importance and difficulty
+                                            surrounding effective authentication
+                                            systems. I implemented a small
+                                            backend server which allowed me to
+                                            retrieve drinks from a MySQL
+                                            database as well handle all login
+                                            data.
                                         </p>
                                     </div>
                                     <div>
@@ -216,10 +344,12 @@
                                 </div>
                                 <div class="project-img" id="img-outfit"></div>
                                 <div class="project-info">
-                                    <div class="project-title">OUTFITLB_PY</div>
+                                    <div class="project-title">OUTFITLB</div>
                                     <div>
-                                        Fork of ... modified to ... description
-                                        blah blah blah etc.
+                                        <p class="justify project-description">
+                                            Fork of ... modified to ...
+                                            description blah blah blah etc.
+                                        </p>
                                     </div>
                                     <div>
                                         <ul>
@@ -242,12 +372,13 @@
                                 <div class="project-img" id="img-ip"></div>
                                 <div class="project-info">
                                     <div class="project-title">
-                                        IRRIGATION_PREDICTOR
+                                        IRRIGATION PREDICTOR
                                     </div>
-
                                     <div>
-                                        Fork of ... modified to ... description
-                                        blah blah blah etc.
+                                        <p class="justify project-description">
+                                            Fork of ... modified to ...
+                                            description blah blah blah etc.
+                                        </p>
                                     </div>
                                     <div>
                                         <ul>
@@ -273,8 +404,10 @@
                                     </div>
 
                                     <div>
-                                        Fork of ... modified to ... description
-                                        blah blah blah etc.
+                                        <p class="justify project-description">
+                                            Fork of ... modified to ...
+                                            description blah blah blah etc.
+                                        </p>
                                     </div>
                                     <div>
                                         <ul>
@@ -296,8 +429,10 @@
                                         MOV-E REVIEWS
                                     </div>
                                     <div>
-                                        Fork of ... modified to ... description
-                                        blah blah blah etc.
+                                        <p class="justify project-description">
+                                            Fork of ... modified to ...
+                                            description blah blah blah etc.
+                                        </p>
                                     </div>
                                     <div>
                                         <ul>
@@ -317,8 +452,10 @@
                                 <div class="project-info">
                                     <div class="project-title">UBC VSA</div>
                                     <div>
-                                        Fork of ... modified to ... description
-                                        blah blah blah etc.
+                                        <p class="justify project-description">
+                                            Fork of ... modified to ...
+                                            description blah blah blah etc.
+                                        </p>
                                     </div>
                                     <div>
                                         <ul>
@@ -340,8 +477,10 @@
                                     </div>
 
                                     <div>
-                                        Fork of ... modified to ... description
-                                        blah blah blah etc.
+                                        <p class="justify project-description">
+                                            Fork of ... modified to ...
+                                            description blah blah blah etc.
+                                        </p>
                                     </div>
                                     <div>
                                         <ul>
@@ -359,32 +498,34 @@
                                 <div class="project-img" id="img-xegativ"></div>
                                 <div class="project-info">
                                     <div class="project-title">
-                                        P6.JPG // XEGATIV
+                                        P6.JPG & XEGATIV
                                     </div>
                                     <div>
-                                        Fork of ... modified to ... description
-                                        blah blah blah etc.
+                                        <p class="justify project-description">
+                                            Fork of ... modified to ...
+                                            description blah blah blah etc.
+                                        </p>
                                     </div>
                                     <div>
                                         <ul>
                                             <li>Photoshop</li>
                                             <li>Illustrator</li>
                                             <li>Premier Pro</li>
+                                            <li>Blender</li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
-                            <div
-                                class="project-box"
-                                style="
-                                    text-align: center;
-                                    font-family: NB;
-                                    font-size: 1.2vh;
-                                    margin-bottom: 10px;
-                                "
-                            >
-                                <i class="arrow left"></i> END // ABYSS
-                                <i class="arrow right"></i>
+                            <div class="project-box">
+                                <div
+                                    class="prev-title"
+                                    style="justify-content: center"
+                                >
+                                    <p>
+                                        <i class="arrow left"></i> END // ABYSS
+                                        <i class="arrow right"></i>
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -398,8 +539,18 @@
                                 id="home-button"
                                 class="button-animation navlink"
                             >
-                                BACK
+                                <a>BACK</a>
                             </p>
+                        </div>
+                    </div>
+                    <div id="resume-main-wrap">
+                        <div id="resume-center"></div>
+                        <div id="resume-download">
+                            <a
+                                href="/Personal/downloads/ResumeV9_link.pdf"
+                                download="ResumeV9.pdf"
+                                >:DOWNLOAD RESUME:</a
+                            >
                         </div>
                     </div>
                 </div>
@@ -412,7 +563,7 @@
                                 id="home-button"
                                 class="button-animation navlink"
                             >
-                                BACK
+                                <a>BACK</a>
                             </p>
                         </div>
                         <div class="move-up">
@@ -420,7 +571,7 @@
                                 id="home-button"
                                 class="button-animation navlink"
                             >
-                                ARCH//VE
+                                GALLERY
                             </p>
                         </div>
                         <div class="move-up">
@@ -436,7 +587,7 @@
                         <div class="gallery-row">
                             <div>
                                 <div class="p-wrap">
-                                    <p>./X_2018/NM.JPG</p>
+                                    <p>./X/NM.JPG</p>
                                 </div>
 
                                 <div class="img-wrap">
@@ -445,7 +596,7 @@
                             </div>
                             <div>
                                 <div class="p-wrap">
-                                    <p>./X_2018/GH.JPG</p>
+                                    <p>./X/GH.JPG</p>
                                 </div>
 
                                 <div class="img-wrap">
@@ -454,7 +605,7 @@
                             </div>
                             <div>
                                 <div class="p-wrap">
-                                    <p>./X_2018/SN.JPG</p>
+                                    <p>./X/SN.JPG</p>
                                 </div>
 
                                 <div class="img-wrap">
@@ -463,7 +614,7 @@
                             </div>
                             <div>
                                 <div class="p-wrap">
-                                    <p>./X_2018/VOID.JPG</p>
+                                    <p>./X/VOID.JPG</p>
                                 </div>
 
                                 <div class="img-wrap">
@@ -472,7 +623,7 @@
                             </div>
                             <div>
                                 <div class="p-wrap">
-                                    <p>./X_2018/WOES.JPG</p>
+                                    <p>./X/WOES.JPG</p>
                                 </div>
 
                                 <div class="img-wrap">
@@ -484,7 +635,7 @@
                         <div class="gallery-row">
                             <div>
                                 <div class="p-wrap">
-                                    <p>./X_2019/ER.JPG</p>
+                                    <p>./X/ER.JPG</p>
                                 </div>
 
                                 <div class="img-wrap">
@@ -493,7 +644,7 @@
                             </div>
                             <div>
                                 <div class="p-wrap">
-                                    <p>./X_2019/FOREVA.JPG</p>
+                                    <p>./X/FOREVA.JPG</p>
                                 </div>
 
                                 <div class="img-wrap">
@@ -505,7 +656,7 @@
 
                             <div>
                                 <div class="p-wrap">
-                                    <p>./X_2019/POSTER.JPG</p>
+                                    <p>./X/POSTER.JPG</p>
                                 </div>
 
                                 <div class="img-wrap">
@@ -516,7 +667,7 @@
                             </div>
                             <div>
                                 <div class="p-wrap">
-                                    <p>./X_2019/PRESSURE.JPG</p>
+                                    <p>./X/PRESSURE.JPG</p>
                                 </div>
 
                                 <div class="img-wrap">
@@ -527,7 +678,7 @@
                             </div>
                             <div>
                                 <div class="p-wrap">
-                                    <p>./X_2019/BLIND.JPG</p>
+                                    <p>./X/BLIND.JPG</p>
                                 </div>
 
                                 <div class="img-wrap">
@@ -540,7 +691,7 @@
                         <div class="gallery-row">
                             <div>
                                 <div class="p-wrap">
-                                    <p>./X_2020/DEATH.JPG</p>
+                                    <p>./X/DEATH.JPG</p>
                                 </div>
 
                                 <div class="img-wrap">
@@ -551,7 +702,7 @@
                             </div>
                             <div>
                                 <div class="p-wrap">
-                                    <p>./X_2020/LOVE.JPG</p>
+                                    <p>./X/LOVE.JPG</p>
                                 </div>
 
                                 <div class="img-wrap">
@@ -561,7 +712,7 @@
 
                             <div>
                                 <div class="p-wrap">
-                                    <p>./X_2020/PT.JPG</p>
+                                    <p>./X/PT.JPG</p>
                                 </div>
 
                                 <div class="img-wrap">
@@ -570,7 +721,7 @@
                             </div>
                             <div>
                                 <div class="p-wrap">
-                                    <p>./X_2020/SEAT.JPG</p>
+                                    <p>./X/SEAT.JPG</p>
                                 </div>
 
                                 <div class="img-wrap">
@@ -579,7 +730,7 @@
                             </div>
                             <div>
                                 <div class="p-wrap">
-                                    <p>./X_2020/SEAT_1.JPG</p>
+                                    <p>./X/SEAT_1.JPG</p>
                                 </div>
 
                                 <div class="img-wrap">
@@ -590,7 +741,7 @@
                             </div>
                             <div>
                                 <div class="p-wrap">
-                                    <p>./X_2020/SEAT_2.JPG</p>
+                                    <p>./X/SEAT_2.JPG</p>
                                 </div>
 
                                 <div class="img-wrap">
@@ -765,17 +916,17 @@
                             id="projects-button"
                             class="button-animation navlink"
                         >
-                            PROJECTS
+                            <a>PROJECTS</a>
                         </p>
                     </div>
                     <div class="move-up">
                         <p id="gallery-button" class="button-animation navlink">
-                            GALLERY
+                            <a>GALLERY</a>
                         </p>
                     </div>
                     <div class="move-up">
                         <p id="resume-button" class="button-animation navlink">
-                            RESUME
+                            <a>RESUME</a>
                         </p>
                     </div>
                 </div>
@@ -785,7 +936,7 @@
                             id="about-button"
                             class="button-animation-delay navlink"
                         >
-                            ABOUT
+                            <a>ABOUT</a>
                         </p>
                     </div>
                 </div>
@@ -800,16 +951,32 @@
                         <br /> -->
 
                         <div class="move-up">
-                            <p class="button-animation decor-navlink">GITHUB</p>
-                        </div>
-                        <div class="move-up">
                             <p class="button-animation decor-navlink">
-                                LINKEDIN
+                                <a
+                                    href="https://github.com/xegativ"
+                                    target="_blank"
+                                    >GITHUB</a
+                                >
                             </p>
                         </div>
                         <div class="move-up">
                             <p class="button-animation decor-navlink">
-                                INSTAGRAM
+                                <a
+                                    href="https://www.linkedin.com/in/the-andrew-lai/"
+                                    target="_blank"
+                                >
+                                    LINKEDIN</a
+                                >
+                            </p>
+                        </div>
+                        <div class="move-up">
+                            <p class="button-animation decor-navlink">
+                                <a
+                                    href="https://www.instagram.com/andrew._lai/"
+                                    target="_blank"
+                                >
+                                    INSTAGRAM
+                                </a>
                             </p>
                         </div>
                     </div>
@@ -822,12 +989,16 @@
             <div id="title">
                 <h1 class="title-animation LR">ANDREW LAI</h1>
             </div>
+            <!-- <div id="title">
+                <h1 class="title-animation LR">ANDREW LAI</h1>
+            </div> -->
         </div>
 
         <script type="module" src="/main.js"></script>
-        <script type="module" src="/horscroll.js"></script>
-        <script type="module" src="/project.js"></script>
+        <!-- <script type="module" src="/horscroll.js"></script> -->
+        <!-- <script type="module" src="/project.js"></script> -->
         <script type="module" src="/gallery-ani.js"></script>
+        <!-- <script type="module" src="/enter.js"></script> -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/CustomEase.min.js"></script>
     </body>
 </html>

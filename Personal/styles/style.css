@@ -9,6 +9,11 @@
 }
 
 @font-face {
+    font-family: "LRI";
+    src: url("../fonts/lmroman10-bolditalic.otf");
+}
+
+@font-face {
     font-family: "NBpro";
     src: url("../fonts/NB Grotesk Pro 55M Normal.ttf");
 }
@@ -16,6 +21,16 @@
 @font-face {
     font-family: "NB";
     src: url("../fonts/NB Grotesk 55 Normal.ttf");
+}
+
+@font-face {
+    font-family: "Z";
+    src: url("../fonts/Hvnter\ -\ Zyft.otf");
+}
+
+@font-face {
+    font-family: "PM";
+    src: url("../fonts/ProtoMono-Regular.ttf");
 }
 
 * {
@@ -28,6 +43,25 @@
     box-sizing: border-box;
 
     cursor: default;
+}
+
+#alt-view {
+    display: none;
+}
+
+@media not (min-width: 705px) {
+    #alt-view {
+        display: block;
+        position: absolute;
+        min-height: 100%;
+        width: 100%;
+        z-index: 99;
+    }
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
 }
 
 body,
@@ -79,10 +113,8 @@ p {
     font-family: "NeueHaasDisplay";
     font-weight: 500;
 
-    /* font-size: 1vw; */
     font-size: 17px;
-
-    cursor: pointer;
+    line-height: 14px;
 }
 
 .navlink {
@@ -91,16 +123,7 @@ p {
 
 .decor-navlink {
     font-weight: 600;
-
     text-align: right;
-}
-
-h1 {
-    /* font-family: "NeueHaasDisplay"; */
-    font-weight: 500;
-
-    font-size: 8vw;
-    line-height: 7vw;
 }
 
 #content-container {
@@ -236,24 +259,19 @@ h1 {
 
     margin-left: 10px;
     margin-right: 10px;
-    margin-top: 20px;
+    margin-top: 15px;
     /* margin-bottom: 5px; */
 
     /* text-align: left; */
 }
 
 .project-description {
-    font-size: clamp(4px, 1vw, 15px);
-}
-
-.project-info div p {
-    /* margin-top: 20px; */
-    font-size: clamp(4px, 0.8vw, 12px);
+    font-size: clamp(10px, 1.2vh, 12px);
     font-family: "NB";
-
-    /* margin-left: 10px; */
     margin-top: 5px;
     margin-bottom: 5px;
+
+    opacity: 0.4;
 }
 
 .justify {
@@ -286,10 +304,10 @@ ul > li {
 
     border-radius: 5px;
 
-    /* margin-bottom: 2px; */
+    margin-bottom: 3px;
     /* 
     font-size: 0.7em; */
-    font-size: max(5px, 0.6vw);
+    font-size: clamp(10px, 1vh, 10px);
     font-family: "NB";
 }
 
@@ -304,16 +322,38 @@ ul > li {
     transition: transform 0s;
 
     margin-top: 20px;
+
+    /* text-align: center;
+    font-family: "Z"; */
 }
 
 .title-animation {
     transform: translateY(150px);
     transition: transform 0s;
+
+    font-weight: 500;
+
+    font-size: 10vw;
+    line-height: 8.7vw;
 }
+
+/* @media (max-width: 1010px) {
+    .title-animation {
+        font-size: 100px;
+        line-height: 87px;
+    }
+}
+
+@media (max-width: 840px) {
+    .title-animation {
+        font-size: 80px; 
+        line-height: 70px;
+    }
+} */
 
 .move-up {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .button-animation {
@@ -379,6 +419,16 @@ ul > li {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
 
+.p-wrap p {
+    opacity: 0.4;
+    transition: opacity 1s;
+}
+
+.p-wrap p:hover {
+    opacity: 1;
+    transition: opacity 0.2s;
+}
+
 /* .p-wrap p {
     transform: translateY(30px);
     transition: transform 0s;
@@ -386,6 +436,16 @@ ul > li {
 
 .img-wrap {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.img-wrap img {
+    border: 1px dashed rgba(255, 255, 255, 0.4);
+    transition: border 1s;
+}
+
+.img-wrap img:hover {
+    border: 1px solid rgba(255, 255, 255, 1);
+    transition: border 0.2s;
 }
 
 /* scrollbar */
@@ -458,14 +518,16 @@ span:hover:after {
 .prev-title p {
     text-align: center;
     font-family: "NB";
-    font-size: 1.2vh;
+    font-size: clamp(10px, 1.2vh, 12px);
+
+    opacity: 0.4;
 }
 
 #img-vsa {
     background-image: url("../assets/VSA/VSA-1.png");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center center;
+    background-position: center top;
 }
 
 #img-xegativ {
@@ -483,7 +545,7 @@ span:hover:after {
 }
 
 #img-move {
-    background-image: url("../assets/mov-e/move-main-stretch.png");
+    background-image: url("../assets/mov-e/move-title.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -497,29 +559,120 @@ span:hover:after {
 }
 
 #img-outfit {
-    background-image: url("../assets/outfitlb/outfitlb-concept.png");
+    background-image: url("../assets/outfitlb/outfit-title.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
 }
 
 #img-mysips {
-    background-image: url("../assets/mysips/section-hero.png");
+    background-image: url("../assets/mysips/mysipstitle-orange.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
 }
 
 #img-devpost {
-    background-image: url("../assets/devpost-scraper/devpost.png");
+    background-image: url("../assets/devpost-scraper/devposttitle.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
 }
 
 #img-folio {
-    background-image: url("../assets/folio/main.png");
+    background-image: url("../assets/folio/Main2.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+}
+
+#img-ip {
+    background-image: url("../assets/irrigation-pred/half-sky.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#img-dsci {
+    background-image: url("../assets/DSCI/hometitle.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#img-pp {
+    background-image: url("../assets/polaparty/pp-edit-noise.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+/* ALT VIEW */
+
+.alt-title {
+    /* font-family: "NB"; */
+    font-family: "NeueHaasDisplay";
+    line-height: 95px;
+    font-size: 110px;
+    /* 
+    margin-top: 10px;
+    margin-bottom: 10px; */
+    margin: 10px 2px 10px 2px;
+}
+
+#alt-view {
+    padding: 10px;
+}
+
+#alt-col-wrap {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.alt-col {
+    flex: 1;
+    margin: 0px 5px 0px 5px;
+    background-color: rgb(49, 49, 49);
+}
+
+#alt-view div p {
+    opacity: 0.4;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+
+.alt-indent {
+    margin-left: 50px;
+}
+
+/* resume content */
+#resume-main-wrap {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+}
+
+#resume-download {
+    font-family: "PM";
+}
+
+#resume-center {
+    margin-bottom: 20px;
+}
+
+.resume-row {
+    letter-spacing: 5px;
+}
+
+.resume-row p {
+    font-family: "PM";
+    font-size: 10px;
+    text-align: center;
 }
