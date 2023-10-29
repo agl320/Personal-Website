@@ -57,6 +57,24 @@
         width: 100%;
         z-index: 99;
     }
+
+    * {
+        overflow: hidden;
+    }
+}
+
+@media not (min-height: 600px) {
+    #alt-view {
+        display: block;
+        position: absolute;
+        min-height: 100%;
+        width: 100%;
+        z-index: 99;
+    }
+
+    * {
+        overflow: hidden;
+    }
 }
 
 a {
@@ -611,7 +629,7 @@ span:hover:after {
 
 .alt-title {
     /* font-family: "NB"; */
-    font-family: "NeueHaasDisplay";
+    font-family: "PM";
     line-height: 95px;
     font-size: 110px;
     /* 
@@ -633,20 +651,32 @@ span:hover:after {
 .alt-col {
     flex: 1;
     margin: 0px 5px 0px 5px;
-    background-color: rgb(49, 49, 49);
+    /* background-color: rgb(49, 49, 49); */
+}
+
+#alt-view > div {
+    margin-bottom: 20px;
 }
 
 #alt-view div p {
     opacity: 0.4;
     text-transform: uppercase;
-    font-size: 15px;
+
+    font-family: "PM";
+    font-size: 12px;
+}
+
+#alt-view > div > p {
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .alt-indent {
     margin-left: 50px;
 }
 
-/* resume content */
+/* RESUME CONTENT*/
+
 #resume-main-wrap {
     margin: 0;
     position: absolute;
@@ -675,4 +705,19 @@ span:hover:after {
     font-family: "PM";
     font-size: 10px;
     text-align: center;
+}
+
+#resume-header {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 5px;
+    padding-bottom: 10px;
+}
+
+#resume-header p {
+    display: flex;
+    justify-content: space-between;
+
+    font-family: "PM";
+    font-size: 10px;
 }
