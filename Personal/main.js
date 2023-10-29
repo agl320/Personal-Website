@@ -4,7 +4,69 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const rowLength = 20;
+// RESUME TEXT FLICKER
+
+let flickerFast = null;
+let flickerSlow = null;
+
+function fastFlicker() {
+    flickerFast = document.querySelectorAll(".flicker-fast");
+
+    const flickerOn = (index) => {
+        if (flickerFast) {
+            flickerFast[index].style.opacity = 1;
+            setTimeout(
+                () => flickerOff(index),
+                Math.floor(Math.random() * 1000)
+            );
+        }
+    };
+
+    const flickerOff = (index) => {
+        if (flickerFast) {
+            flickerFast[index].style.opacity = 0.2;
+            setTimeout(() => flickerOn(index), Math.floor(Math.random() * 500));
+        }
+    };
+
+    flickerFast.forEach((item, index) => {
+        flickerOn(index);
+    });
+}
+
+function slowFlicker() {
+    flickerSlow = document.querySelectorAll(".flicker-slow");
+
+    const flickerOn = (index) => {
+        if (flickerSlow) {
+            flickerSlow[index].style.opacity = 1;
+            setTimeout(
+                () => flickerOff(index),
+                Math.floor(Math.random() * 10000)
+            );
+        }
+    };
+
+    const flickerOff = (index) => {
+        if (flickerSlow) {
+            flickerSlow[index].style.opacity = 0.2;
+            setTimeout(() => flickerOn(index), Math.floor(Math.random() * 500));
+        }
+    };
+
+    flickerSlow.forEach((item, index) => {
+        flickerOn(index);
+    });
+}
+
+function stopFlicker() {
+    flickerFast = null;
+    flickerSlow = null;
+}
+
+// RESUME TEXT BOX
+
+const rowLength = 25;
 const colLength = 20;
 
 const blankRow = ".".repeat(rowLength * colLength);
@@ -18,8 +80,14 @@ const text2 = "serpere deinceps, noli haesitare, ut scolopendra";
 const text3 =
     "Even if it didn't end well, all the good times made it a little better";
 
+const text4 =
+    "And God, please let the deer on the highway get some kind of heaven. Something with tall soft grass and sweet reunion. Let the moths in porch lights go some place with a thousand suns, that taste like sugar and get swallowed whole. May the mice in oil and glue have forever dry, warm fur and full bellies. If I am killed for simply living, let death be kinder than man.";
+
+const text5 =
+    "I love you because it’s been so good for so long that if I didn’t love you I’d have to be born again and that is not a theological statement, I am pitiful in my love for you";
+
 // randomly pick starting text
-const textArr = [text, text2, text3];
+const textArr = [text, text2, text3, text4, text5];
 
 function pickRandomText() {
     const randomIndex = Math.floor(Math.random() * textArr.length);
@@ -226,6 +294,8 @@ function resumeAnimateIn(onComplete = null) {
             duration: 1,
             opacity: 1,
             onComplete: () => {
+                fastFlicker();
+                slowFlicker();
                 console.log("[</>] RESUME");
             },
         }
@@ -243,6 +313,9 @@ function resumeAnimateOut(onComplete = null) {
             opacity: 0,
             onComplete: () => {
                 console.log("[ X ] RESUME");
+                if (onComplete) {
+                    onComplete();
+                }
             },
         }
     );
@@ -607,7 +680,9 @@ navLinks.forEach((navLink) => {
                         } else if (lastPage == "gallery") {
                             galleryAnimateOut();
                         } else if (lastPage == "resume") {
-                            resumeAnimateOut();
+                            resumeAnimateOut(() => {
+                                stopFlicker();
+                            });
                         }
 
                         linksAnimateOut(0, () => {
@@ -682,7 +757,9 @@ window.addEventListener("popstate", (event) => {
                     } else if (lastPage == "gallery") {
                         galleryAnimateOut();
                     } else if (lastPage == "resume") {
-                        resumeAnimateOut();
+                        resumeAnimateOut(() => {
+                            stopFlicker();
+                        });
                     }
                     linksAnimateOut(0, () => {
                         showContent(state.page, () => {
