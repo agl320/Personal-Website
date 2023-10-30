@@ -86,8 +86,11 @@ const text4 =
 const text5 =
     "I love you because it’s been so good for so long that if I didn’t love you I’d have to be born again and that is not a theological statement, I am pitiful in my love for you";
 
+const text6 =
+    "You all think you are all so great. I will show you all. I will turn you all into nothing. My motivation is your devastation. Die.";
+
 // randomly pick starting text
-const textArr = [text, text2, text3, text4, text5];
+const textArr = [text, text2, text3, text4, text5, text6];
 
 function pickRandomText() {
     const randomIndex = Math.floor(Math.random() * textArr.length);
@@ -281,8 +284,8 @@ gsap.registerPlugin(CustomEase);
 
 // initial values
 let aniDone = true;
-let lastPage = "resume";
-let targetPage = "resume";
+let lastPage = "home";
+let targetPage = "home";
 
 function resumeAnimateIn(onComplete = null) {
     console.log("[<>] RESUME");
@@ -399,7 +402,7 @@ function titleAnimateIn(delay = 0) {
     // - provide various preset heights
 
     const titleHeight = "7.5vw";
-    const halfTitleHeight = "3.25vw";
+    const halfTitleHeight = "5vw";
 
     gsap.fromTo(
         ".title-animation",
@@ -441,7 +444,7 @@ function titleAnimateOut() {
         {
             delay: 0,
             y: `-${titleHeight}`,
-            duration: 0.6,
+            duration: 0.5,
         }
     );
     gsap.fromTo(
@@ -450,7 +453,7 @@ function titleAnimateOut() {
         {
             delay: 0,
             y: halfTitleHeight,
-            duration: 0.6,
+            duration: 0.5,
             onComplete: () => {
                 console.log("[ X ] TITLE");
             },
@@ -804,6 +807,6 @@ window.addEventListener("popstate", (event) => {
 window.addEventListener("DOMContentLoaded", () => {
     // const path = window.location.pathname.substring(1); // Remove the leading slash
 
-    history.pushState({ page: "resume" }, "", `/resume`);
-    showContent("resume");
+    history.pushState({ page: "home" }, "", `/`);
+    showContent("home");
 });
