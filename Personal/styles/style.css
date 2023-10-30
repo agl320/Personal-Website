@@ -110,6 +110,15 @@ html {
     font-family: "NeueHaasDisplay";
 }
 
+.NCL {
+    font-family: "NCL";
+}
+
+.NCL-italic {
+    font-family: "NCL";
+    font-style: italic;
+}
+
 #hero {
     padding: 80px;
 
@@ -363,8 +372,10 @@ ul > li {
 
     font-weight: 500;
 
-    font-size: 10vw;
-    line-height: 8.7vw;
+    /* font-size: 10vw;
+    line-height: 8.7vw; */
+    font-size: 6.7vw;
+    line-height: 6vw;
 }
 
 /* @media (max-width: 1010px) {
@@ -679,7 +690,7 @@ ul > li {
 }
 
 #alt-view div .alt-highlight {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.6);
 }
 
 #alt-view > div > p {

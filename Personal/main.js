@@ -401,8 +401,11 @@ function titleAnimateIn(delay = 0) {
     // - calculate font height, etc. dynamically
     // - provide various preset heights
 
-    const titleHeight = "7.5vw";
-    const halfTitleHeight = "5vw";
+    // const titleHeight = "7.5vw";
+    // const halfTitleHeight = "5vw";
+
+    const titleHeight = "5.1vw";
+    const halfTitleHeight = "2vw";
 
     gsap.fromTo(
         ".title-animation",
@@ -435,8 +438,8 @@ function titleAnimateOut() {
     console.log("[</>] TITLE");
 
     // account for gap at top of font
-    const titleHeight = "10vw";
-    const halfTitleHeight = "5vw";
+    const titleHeight = "7vw";
+    const halfTitleHeight = "2vw";
 
     gsap.fromTo(
         ".title-animation",
