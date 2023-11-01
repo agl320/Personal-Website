@@ -38,6 +38,11 @@
     src: url("../fonts/NCLKregas-Regular.ttf");
 }
 
+@font-face {
+    font-family: "NCLO";
+    src: url("../fonts/NCLKregas-Outline.woff2");
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -114,6 +119,10 @@ html {
     font-family: "NCL";
 }
 
+.NCLO {
+    font-family: "NCLO";
+}
+
 .NCL-italic {
     font-family: "NCL";
     font-style: italic;
@@ -146,7 +155,7 @@ p {
     font-weight: 500;
 
     font-size: 17px;
-    line-height: 14px;
+    line-height: 15px;
 }
 
 .navlink {
@@ -203,10 +212,127 @@ p {
     margin-right: auto;
 }
 
+#about-content {
+    height: 100%;
+}
+
+#about-content > #content-wrap {
+    height: 100%;
+}
+
+#about-main {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#about-main p {
+    font-size: clamp(10px, 0.5vw, 12px);
+    line-height: clamp(14px, 0.9vw, 16px);
+    font-family: "PM";
+    color: rgba(255, 255, 255, 0.4);
+
+    transition: color 1.5s;
+}
+
+#about-main p:hover {
+    color: rgba(255, 255, 255, 1);
+
+    transition: color 0.2s;
+}
+
+#about-left #about-focus {
+    font-size: clamp(10px, 0.5vw, 12px);
+    line-height: clamp(14px, 0.9vw, 16px);
+    font-family: "PM";
+    font-weight: 500;
+    text-transform: uppercase;
+
+    /* letter-spacing: 0.9px; */
+
+    color: rgba(255, 255, 255, 1);
+}
+
+#about-right h1 {
+    font-family: "NeueHaasDisplay";
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 3vw;
+    line-height: 2.5vw;
+
+    margin-top: 3px;
+    margin-bottom: 3px;
+
+    transition: color 1.5s;
+}
+
+#about-right h1:hover {
+    font-family: "NeueHaasDisplay";
+    font-weight: 500;
+    color: rgba(255, 255, 255, 1);
+    font-size: 3vw;
+    line-height: 2.5vw;
+
+    margin-top: 3px;
+    margin-bottom: 3px;
+
+    transition: color 0.2s;
+}
+
+#about-main > div {
+    width: 100%;
+}
+
+#about-left {
+    display: flex;
+}
+
+#about-left > div {
+    width: 50%;
+}
+
+#about-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.about-spread {
+    display: flex;
+    justify-content: space-between;
+}
+
+.about-spread-vert {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.about-spread-no-width {
+    display: flex;
+    justify-content: space-between;
+}
+
+.about-spread > div {
+    /* flex: 1; */
+    width: 16%;
+}
+
+.text-right {
+    text-align: right;
+}
+
+#about-lower-right {
+    display: block;
+}
+
 #project-main {
     margin: 0;
     position: absolute;
-    top: 25%;
+    /* CHECK */
+    top: 25vh;
     /* -ms-transform: translateY(-50%);
     transform: translateY(-50%); */
 
@@ -250,7 +376,7 @@ p {
     /* outline: rgb(144, 144, 144) solid 1px; */
 
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.252);
-    transition: box-shadow 2s;
+    transition: box-shadow 1.5s;
 
     justify-content: center;
     text-align: center;
@@ -451,9 +577,15 @@ ul > li {
     width: 10vw;
 }
 #gallery-wrap div div p {
-    font-family: "NB";
-    font-size: max(10px, 0.7vw);
+    /* font-family: "NB";
+    font-size: max(10px, 0.7vw); */
     margin-bottom: 8px;
+
+    font-size: clamp(10px, 0.5vw, 12px);
+
+    font-family: "PM";
+    font-weight: 500;
+    text-transform: uppercase;
 }
 
 .p-wrap {
@@ -462,7 +594,7 @@ ul > li {
 
 .p-wrap p {
     opacity: 0.4;
-    transition: opacity 1s;
+    transition: opacity 1.5s;
 }
 
 .p-wrap p:hover {
@@ -481,7 +613,7 @@ ul > li {
 
 .img-wrap img {
     border: 1px dashed rgba(255, 255, 255, 0.4);
-    transition: border 1s;
+    transition: border 1.5s;
 }
 
 .img-wrap img:hover {
@@ -558,8 +690,8 @@ ul > li {
 }
 .prev-title p {
     text-align: center;
-    font-family: "NB";
-    font-size: clamp(10px, 1.2vh, 12px);
+    font-family: "PM";
+    font-size: clamp(10px, 0.5vw, 12px);
 
     opacity: 0.4;
 }
@@ -653,26 +785,43 @@ ul > li {
 .alt-title {
     /* font-family: "NB"; */
     font-family: "NCL";
-    line-height: 95px;
-    font-size: 110px;
+    /* line-height: 95px;
+    font-size: 110px; */
+    line-height: 20vw;
+    font-size: 24vw;
     /* 
     margin-top: 10px;
     margin-bottom: 10px; */
     margin: 10px 2px 10px 2px;
+    /* color: orange; */
+
+    background: linear-gradient(
+        to right,
+        rgb(255, 255, 255),
+        rgb(255, 255, 255)
+    );
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+
+    /* text-shadow: 0px 3px 3px rgb(255, 244, 244); */
 }
 
 #alt-view {
     padding: 10px;
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 #alt-col-wrap {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     height: 100%;
 }
 
 .alt-col {
-    flex: 1;
+    width: 25%;
     margin: 0px 5px 0px 5px;
     /* background-color: rgb(49, 49, 49); */
 }
@@ -686,7 +835,8 @@ ul > li {
     text-transform: uppercase;
 
     font-family: "PM";
-    font-size: 12px;
+    font-size: clamp(9px, 3vw, 12px);
+    line-height: clamp(12px, 4vw, 15px);
 }
 
 #alt-view div .alt-highlight {
@@ -704,7 +854,7 @@ ul > li {
 
 /* RESUME CONTENT*/
 
-#resume-main-wrap {
+#resume-vert-center {
     margin: 0;
     position: absolute;
     top: 50%;
@@ -714,6 +864,28 @@ ul > li {
     transform: translate(-50%, -50%);
 
     text-align: center;
+
+    width: 100%;
+    padding: 80px;
+}
+
+.resume-col-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.resume-col-wrap p {
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+
+    font-family: "PM";
+    font-size: 10px;
+}
+
+#resume-hor-flex {
+    display: flex;
+    justify-content: space-between;
 }
 
 #resume-download {
@@ -757,4 +929,16 @@ ul > li {
 
 .details-h {
     color: rgba(255, 255, 255, 0.6);
+}
+
+.tab1 {
+    tab-size: 2;
+}
+
+.tab2 {
+    tab-size: 4;
+}
+
+.tab4 {
+    tab-size: 8;
 }

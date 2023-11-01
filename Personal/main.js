@@ -277,7 +277,13 @@ const projectsContent = document.getElementById("projects-content");
 const pWrapArr = document.querySelectorAll(".p-wrap");
 const imgArr = document.querySelectorAll(".img-wrap img");
 
-const resumeMainWrap = document.getElementById("resume-main-wrap");
+const resumeMainWrap = document.getElementById("resume-vert-center");
+
+// about container
+const aboutAnimateArr = document.querySelectorAll(".about-animate");
+
+const projectBOXArr = document.querySelectorAll(".project-box");
+
 // exit animations
 
 gsap.registerPlugin(CustomEase);
@@ -286,6 +292,29 @@ gsap.registerPlugin(CustomEase);
 let aniDone = true;
 let lastPage = "home";
 let targetPage = "home";
+
+function aboutAnimateIn(onComplete = null) {
+    gsap.fromTo(
+        aboutAnimateArr,
+        { opacity: 0 },
+        { opacity: 1, delay: 0.3, stagger: -0.1, duration: 0.7 }
+    );
+}
+
+function aboutAnimateOut(onComplete = null) {
+    aboutAnimateArr.forEach((item, index) => {
+        gsap.fromTo(
+            item,
+            { opacity: item.style.opacity },
+            {
+                opacity: 0,
+                delay: 0.3,
+
+                duration: 0.4,
+            }
+        );
+    });
+}
 
 function resumeAnimateIn(onComplete = null) {
     console.log("[<>] RESUME");
@@ -327,49 +356,52 @@ function resumeAnimateOut(onComplete = null) {
 function galleryAnimateOut(onComplete = null) {
     console.log("[</>] GALLERY");
 
-    gsap.fromTo(
-        pWrapArr,
-        { opacity: 1 },
-        {
-            duration: 0.5,
-            opacity: 0,
-            onComplete: () => {
-                console.log("[ X ] GALLERY");
-            },
-        }
-    );
+    pWrapArr.forEach((item, index) => {
+        gsap.fromTo(
+            item,
+            { opacity: item.style.opacity },
+            {
+                duration: 0.5,
+                opacity: 0,
+            }
+        );
+    });
 
-    gsap.fromTo(
-        imgArr,
-        { opacity: 1 },
-        {
-            duration: 0.4,
-            opacity: 0,
+    imgArr.forEach((item, index) => {
+        gsap.fromTo(
+            item,
+            { opacity: item.style.opacity },
+            {
+                duration: 0.5,
+                opacity: 0,
+            }
+        );
+    });
 
-            onComplete: onComplete,
-        }
-    );
+    if (onComplete) {
+        onComplete();
+    }
 }
 
 function galleryAnimateIn(onComplete = null) {
     console.log("[<>] GALLERY");
 
-    navLinks.forEach((item, index) => {
-        item.style.pointerEvents = "none";
-    });
+    // navLinks.forEach((item, index) => {
+    //     item.style.pointerEvents = "none";
+    // });
 
     gsap.fromTo(
         pWrapArr,
         { opacity: 0 },
         {
-            duration: 0.5,
+            duration: 0.4,
             stagger: 0.1,
             opacity: 1,
-            delay: 0.5,
+            delay: 0.6,
             onComplete: () => {
-                navLinks.forEach((item, index) => {
-                    item.style.pointerEvents = "auto";
-                });
+                // navLinks.forEach((item, index) => {
+                //     item.style.pointerEvents = "auto";
+                // });
 
                 console.log("[</>] GALLERY");
             },
@@ -404,8 +436,8 @@ function titleAnimateIn(delay = 0) {
     // const titleHeight = "7.5vw";
     // const halfTitleHeight = "5vw";
 
-    const titleHeight = "5.1vw";
-    const halfTitleHeight = "2vw";
+    const titleHeight = "5.2vw";
+    const halfTitleHeight = "2.5vw";
 
     gsap.fromTo(
         ".title-animation",
@@ -479,7 +511,7 @@ function linksAnimateIn(delay = 0, onComplete = null) {
     // button-animation-delay allows for separating if needed later
     const animation = gsap.fromTo(
         [".button-animation", ".button-animation-delay"],
-        { y: 14 },
+        { y: 16 },
         {
             stagger: 0.1,
             delay: delay,
@@ -509,8 +541,8 @@ function linksAnimateOut(delay = 0, onComplete = null) {
         {
             stagger: 0,
             delay: delay,
-            y: -30,
-            duration: 0.7,
+            y: -20,
+            duration: 0.5,
 
             onComplete: () => {
                 console.log("[ X ] LINKS");
@@ -525,36 +557,22 @@ function linksAnimateOut(delay = 0, onComplete = null) {
 function projectsAnimateIn() {
     console.log("[<>] PROJECTS");
 
-    // ensure that interactions do not occur until after animations are complete
-    const projectBOXArr = document.querySelectorAll(".project-box");
+    // projectBOXArr.forEach((item, index) => {
+    //     item.style.pointerEvents = "none";
+    // });
 
-    projectBOXArr.forEach((item, index) => {
-        item.style.pointerEvents = "none";
-    });
-
-    navLinks.forEach((item, index) => {
-        item.style.pointerEvents = "none";
-    });
+    // navLinks.forEach((item, index) => {
+    //     item.style.pointerEvents = "none";
+    // });
 
     gsap.fromTo(
-        ".project-box",
+        projectBOXArr,
         { opacity: 0, marginRight: 5 },
         {
             opacity: 1,
             stagger: 0.1,
             delay: 0.3,
             duration: 0.8,
-
-            onComplete: () => {
-                console.log("[</>] PROJECTS");
-
-                projectBOXArr.forEach((item, index) => {
-                    item.style.pointerEvents = "auto";
-                });
-                navLinks.forEach((item, index) => {
-                    item.style.pointerEvents = "auto";
-                });
-            },
         }
     );
 }
@@ -563,7 +581,7 @@ function projectsAnimateOut(onComplete = null) {
     console.log("[</>] PROJECTS");
 
     gsap.fromTo(
-        ".project-box",
+        projectBOXArr,
         { opacity: 1, marginRight: 5 },
         {
             marginRight: 20,
@@ -607,7 +625,7 @@ function showContent(id, onComplete = null) {
         document.documentElement.style.overflow = "hidden";
 
         titleAnimateIn();
-        linksAnimateIn(0.9, onComplete);
+        linksAnimateIn(0.7, onComplete);
     } else {
         // console.log("Not home.");
 
@@ -636,6 +654,8 @@ function showContent(id, onComplete = null) {
 
             console.log("Done animate for gallery.");
         } else if (id === "about") {
+            aboutAnimateIn();
+
             projectsContent.style.display = "none";
 
             document.body.style.overflow = "visible";
@@ -689,6 +709,8 @@ navLinks.forEach((navLink) => {
                             resumeAnimateOut(() => {
                                 stopFlicker();
                             });
+                        } else if (lastPage == "about") {
+                            aboutAnimateOut();
                         }
 
                         linksAnimateOut(0, () => {
@@ -703,7 +725,41 @@ navLinks.forEach((navLink) => {
                                 history.pushState({ page: id }, "", `/`);
                             });
                         });
-                    } else {
+                    }
+                    // else if (id == "about") {
+                    //     // const currentTop =
+                    //     //     document.getElementById("title").style.top;
+                    //     linksAnimateOut(0);
+
+                    //     const heroContainer = document.getElementById("hero");
+
+                    //     // navBar.style.display = "none";
+
+                    //     // gsap.fromTo(
+                    //     //     heroContainer,
+                    //     //     { height: "100%" },
+                    //     //     {
+                    //     //         delay: 0.5,
+                    //     //         height: "0%",
+                    //     //         duration: 2,
+                    //     //         ease: "power4.inOut",
+                    //     //         onComplete: () => {},
+                    //     //     }
+                    //     // );
+
+                    //     gsap.fromTo(
+                    //         "#title",
+                    //         { y: 0 },
+                    //         {
+                    //             delay: 0.5,
+                    //             y: `-60vh`,
+                    //             duration: 2,
+                    //             ease: "power4.inOut",
+                    //             onComplete: () => {},
+                    //         }
+                    //     );
+                    // }
+                    else {
                         titleAnimateOut();
                         linksAnimateOut(0, () => {
                             showContent(id, () => {
