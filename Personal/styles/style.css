@@ -15,7 +15,7 @@
 
 @font-face {
     font-family: "NBpro";
-    src: url("../fonts/NB Grotesk Pro 55M Normal.ttf");
+    src: url("../fonts/NB\ Grotesk\ Pro\ 55M\ Normal.ttf");
 }
 
 @font-face {
@@ -151,7 +151,7 @@ html {
 }
 
 p {
-    font-family: "NeueHaasDisplay";
+    font-family: "PM";
     font-weight: 500;
 
     font-size: 17px;
@@ -256,7 +256,7 @@ p {
 }
 
 #about-right h1 {
-    font-family: "NeueHaasDisplay";
+    font-family: "NBPro";
     font-weight: 500;
     color: rgba(255, 255, 255, 0.4);
     font-size: 3vw;
@@ -269,7 +269,7 @@ p {
 }
 
 #about-right h1:hover {
-    font-family: "NeueHaasDisplay";
+    font-family: "NBPro";
     font-weight: 500;
     color: rgba(255, 255, 255, 1);
     font-size: 3vw;
@@ -348,6 +348,28 @@ p {
     height: 100%;
 }
 
+#projects-border-wrap {
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 100%;
+}
+
+.projects-border {
+    display: flex;
+    justify-content: space-between;
+}
+
+.projects-border p {
+    font-size: clamp(8px, 0.6vw, 10px);
+    font-family: "PM";
+    color: rgba(255, 255, 255, 0.4);
+}
+
 #gsap-wrap {
     height: 100%;
 }
@@ -384,7 +406,7 @@ p {
     filter: grayscale(0.5); */
     /* 
     display: none; */
-    border-radius: 5px;
+    /* border-radius: 5px; */
 }
 
 .project-img-link {
@@ -410,7 +432,8 @@ p {
 
 .project-title {
     /* font-size: 1em; */
-    font-weight: bold;
+    font-size: clamp(8px, 0.6vw, 10px);
+    font-family: "PM";
 
     /* text-align: center; */
 }
@@ -431,8 +454,11 @@ p {
 }
 
 .project-description {
-    font-size: clamp(10px, 1.2vh, 12px);
-    font-family: "NB";
+    /* font-size: clamp(10px, 1.2vh, 12px);
+    font-family: "NB"; */
+    font-size: clamp(8px, 0.6vw, 10px);
+    line-height: clamp(12px, 0.9vw, 14px);
+    font-family: "PM";
     margin-top: 5px;
     margin-bottom: 5px;
     /* 
@@ -464,20 +490,24 @@ ul > li {
     list-style-type: none;
     display: inline-block;
 
-    background-color: rgb(53, 53, 53);
     padding: 8px;
 
-    border-radius: 5px;
+    /* background-color: rgb(53, 53, 53); */
+    /* border-radius: 5px; */
+    border: rgba(255, 255, 255, 0.4) solid 1px;
+    color: rgba(255, 255, 255, 0.4);
 
     margin-bottom: 3px;
     /* 
     font-size: 0.7em; */
-    font-size: clamp(10px, 1vh, 10px);
-    font-family: "NB";
+    font-size: clamp(8px, 0.6vw, 9px);
+    font-family: "PM";
 }
 
 .tag-special {
-    background-color: rgb(82, 82, 82);
+    /* background-color: rgb(82, 82, 82); */
+    color: white;
+    border: rgba(255, 255, 255, 1) solid 1px;
 }
 
 #title {
@@ -691,7 +721,7 @@ ul > li {
 .prev-title p {
     text-align: center;
     font-family: "PM";
-    font-size: clamp(10px, 0.5vw, 12px);
+    font-size: clamp(8px, 0.6vw, 10px);
 
     opacity: 0.4;
 }
@@ -866,7 +896,12 @@ ul > li {
     text-align: center;
 
     width: 100%;
-    padding: 80px;
+    padding-left: 80px;
+    padding-right: 80px;
+
+    background: rgba(255, 255, 255, 0);
+
+    z-index: 0;
 }
 
 .resume-col-wrap {
@@ -941,4 +976,8 @@ ul > li {
 
 .tab4 {
     tab-size: 8;
+}
+
+.file-add {
+    color: rgba(255, 255, 255, 0.5);
 }
