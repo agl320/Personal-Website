@@ -284,6 +284,8 @@ const aboutAnimateArr = document.querySelectorAll(".about-animate");
 
 const projectBOXArr = document.querySelectorAll(".project-box");
 
+const projectBorder = document.getElementById("projects-border-wrap");
+
 // exit animations
 
 gsap.registerPlugin(CustomEase);
@@ -566,6 +568,12 @@ function projectsAnimateIn() {
     // });
 
     gsap.fromTo(
+        projectBorder,
+        { opacity: 0 },
+        { opacity: 1, delay: 0.3, duration: 0.8 }
+    );
+
+    gsap.fromTo(
         projectBOXArr,
         { opacity: 0, marginRight: 5 },
         {
@@ -579,6 +587,8 @@ function projectsAnimateIn() {
 
 function projectsAnimateOut(onComplete = null) {
     console.log("[</>] PROJECTS");
+
+    gsap.fromTo(projectBorder, { opacity: 1 }, { opacity: 0, duration: 0.5 });
 
     gsap.fromTo(
         projectBOXArr,

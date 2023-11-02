@@ -73,7 +73,7 @@
     }
 }
 
-@media not (min-height: 600px) {
+@media not (min-height: 636px) {
     #alt-view {
         display: block;
         position: absolute;
@@ -84,6 +84,12 @@
 
     * {
         overflow: hidden;
+    }
+}
+
+@media (max-height: 840px) {
+    #projects-border-bottom {
+        display: none;
     }
 }
 
@@ -229,8 +235,8 @@ p {
 }
 
 #about-main p {
-    font-size: clamp(10px, 0.5vw, 12px);
-    line-height: clamp(14px, 0.9vw, 16px);
+    font-size: 10px;
+    line-height: 15px;
     font-family: "PM";
     color: rgba(255, 255, 255, 0.4);
 
@@ -244,8 +250,8 @@ p {
 }
 
 #about-left #about-focus {
-    font-size: clamp(10px, 0.5vw, 12px);
-    line-height: clamp(14px, 0.9vw, 16px);
+    font-size: 10px;
+    line-height: 15px;
     font-family: "PM";
     font-weight: 500;
     text-transform: uppercase;
@@ -362,10 +368,11 @@ p {
 .projects-border {
     display: flex;
     justify-content: space-between;
+    z-index: 1;
 }
 
 .projects-border p {
-    font-size: clamp(8px, 0.6vw, 10px);
+    font-size: 10px;
     font-family: "PM";
     color: rgba(255, 255, 255, 0.4);
 }
@@ -375,7 +382,8 @@ p {
 }
 
 .project-box {
-    /* margin: 10px; */
+    background: rgba(0, 0, 0, 0);
+    /* margin: 1rgba(0, 0, 0, 0)*/
     margin: 1vw;
 
     font-family: "NeueHaasDisplay";
@@ -432,7 +440,7 @@ p {
 
 .project-title {
     /* font-size: 1em; */
-    font-size: clamp(8px, 0.6vw, 10px);
+    font-size: 10px;
     font-family: "PM";
 
     /* text-align: center; */
@@ -456,8 +464,8 @@ p {
 .project-description {
     /* font-size: clamp(10px, 1.2vh, 12px);
     font-family: "NB"; */
-    font-size: clamp(8px, 0.6vw, 10px);
-    line-height: clamp(12px, 0.9vw, 14px);
+    font-size: 10px;
+    line-height: 12px;
     font-family: "PM";
     margin-top: 5px;
     margin-bottom: 5px;
@@ -470,10 +478,10 @@ p {
     text-justify: inter-character;
 }
 
-.project-status {
+/* .project-status {
     text-align: center;
     font-size: clamp(4px, 0.8vw, 12px);
-}
+} */
 
 /* ul {
     list-style-type: none;
@@ -500,7 +508,7 @@ ul > li {
     margin-bottom: 3px;
     /* 
     font-size: 0.7em; */
-    font-size: clamp(8px, 0.6vw, 9px);
+    font-size: 9px;
     font-family: "PM";
 }
 
@@ -611,7 +619,7 @@ ul > li {
     font-size: max(10px, 0.7vw); */
     margin-bottom: 8px;
 
-    font-size: clamp(10px, 0.5vw, 12px);
+    font-size: 10px;
 
     font-family: "PM";
     font-weight: 500;
@@ -721,7 +729,7 @@ ul > li {
 .prev-title p {
     text-align: center;
     font-family: "PM";
-    font-size: clamp(8px, 0.6vw, 10px);
+    font-size: 10px;
 
     opacity: 0.4;
 }
