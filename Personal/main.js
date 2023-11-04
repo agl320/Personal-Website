@@ -348,7 +348,7 @@ if (hasTouchScreen) {
 
     // exit animations
 
-    gsap.registerPlugin(CustomEase);
+    // gsap.registerPlugin(CustomEase);
 
     // initial values
     let aniDone = true;
