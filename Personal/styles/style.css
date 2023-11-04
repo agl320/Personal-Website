@@ -15,7 +15,7 @@
 
 @font-face {
     font-family: "NBpro";
-    src: url("../fonts/NB\ Grotesk\ Pro\ 55M\ Normal.ttf");
+    src: url("../fonts/NBGroteskPro55MNormal.ttf");
 }
 
 @font-face {
@@ -49,7 +49,7 @@
 
     color: white;
     background-color: rgb(15, 15, 15);
-    background-color: rgb(0, 0, 0);
+    /* background-color: rgb(0, 0, 0); */
 
     box-sizing: border-box;
 
