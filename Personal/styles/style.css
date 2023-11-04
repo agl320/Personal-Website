@@ -57,6 +57,8 @@
 }
 
 #alt-view {
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
     display: none;
 }
 
