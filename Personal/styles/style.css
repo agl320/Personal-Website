@@ -60,7 +60,7 @@
     display: none;
 }
 
-@media (pointer: none), (pointer: coarse) {
+/* @media (pointer: none), (pointer: coarse) {
     #alt-view {
         display: block;
         position: absolute;
@@ -72,9 +72,9 @@
     * {
         overflow: hidden;
     }
-}
+} */
 
-@media not (min-width: 705px) {
+/* @media not (min-width: 705px) {
     #alt-view {
         display: block;
         position: absolute;
@@ -100,7 +100,7 @@
     * {
         overflow: hidden;
     }
-}
+} */
 
 @media (max-height: 840px) {
     #projects-border-bottom {
