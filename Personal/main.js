@@ -87,7 +87,7 @@ const text5 =
     "I love you because it’s been so good for so long that if I didn’t love you I’d have to be born again and that is not a theological statement, I am pitiful in my love for you";
 
 const text6 =
-    "You all think you are all so great. I will show you all. I will turn you all into nothing. My motivation is your devastation. Die.";
+    "You don’t know the value of a moment, until it becomes a memory.";
 
 // randomly pick starting text
 const textArr = [text, text2, text3, text4, text5, text6];
@@ -106,16 +106,16 @@ function replaceText(text) {
     const textWords = text.split(" ");
     const textLengthNoSpace = textWords.join("").length;
 
-    // console.log(`Blank row length: ${blankRow.length}`);
-    // console.log(`Text length: ${text.length}`);
-    // console.log(`Text length no space: ${textLengthNoSpace}`);
+    // //console.log(`Blank row length: ${blankRow.length}`);
+    // //console.log(`Text length: ${text.length}`);
+    // //console.log(`Text length no space: ${textLengthNoSpace}`);
 
     const blankSpace = blankRow.length - textLengthNoSpace;
     const spaceBetween = Math.floor(blankSpace / (textWords.length - 1));
 
-    // console.log(`Total space: ${blankSpace}`);
-    // console.log(`Words: ${text.split(" ").length}`);
-    // console.log(`Space between words: ${spaceBetween}`);
+    // //console.log(`Total space: ${blankSpace}`);
+    // //console.log(`Words: ${text.split(" ").length}`);
+    // //console.log(`Space between words: ${spaceBetween}`);
 
     // index for textChars
     let j = 0;
@@ -123,33 +123,33 @@ function replaceText(text) {
     let wordComplete = false;
     for (let i = 0; i < blankRow.length; i++) {
         if (wordComplete == false) {
-            // console.log("[>] Word not completed");
+            // //console.log("[>] Word not completed");
             if (j >= textChars.length || textChars[j] == " ") {
-                // console.log("\tSpace found; word done");
+                // //console.log("\tSpace found; word done");
 
                 blankChars[i] = ".";
                 wordComplete = true;
                 spaceCount += 1;
             } else {
-                // console.log("\tNo space found");
-                // console.log(`\tReplacing with ${textChars[j]}`);
+                // //console.log("\tNo space found");
+                // //console.log(`\tReplacing with ${textChars[j]}`);
 
                 blankChars[i] = textChars[j];
                 j += 1;
             }
         } else {
-            // console.log("[>] Word completed");
+            // //console.log("[>] Word completed");
 
             blankChars[i] = ".";
-            // console.log(`Difference in index: ${i - j + 1}`);
+            // //console.log(`Difference in index: ${i - j + 1}`);
             if (spaceCount + 1 >= spaceBetween) {
-                // console.log("\tSpace completely filled");
+                // //console.log("\tSpace completely filled");
                 spaceCount = 0;
                 wordComplete = false;
                 j += 1;
             } else {
                 spaceCount += 1;
-                // console.log("\tMore space to fill");
+                // //console.log("\tMore space to fill");
             }
         }
     }
@@ -285,6 +285,7 @@ const aboutAnimateArr = document.querySelectorAll(".about-animate");
 const projectBOXArr = document.querySelectorAll(".project-box");
 
 const projectBorder = document.getElementById("projects-border-wrap");
+const galleryBorderArr = document.querySelectorAll(".gallery-border");
 
 // exit animations
 
@@ -319,7 +320,7 @@ function aboutAnimateOut(onComplete = null) {
 }
 
 function resumeAnimateIn(onComplete = null) {
-    console.log("[<>] RESUME");
+    //console.log("[<>] RESUME");
 
     gsap.fromTo(
         resumeMainWrap,
@@ -330,14 +331,14 @@ function resumeAnimateIn(onComplete = null) {
             onComplete: () => {
                 fastFlicker();
                 slowFlicker();
-                console.log("[</>] RESUME");
+                //console.log("[</>] RESUME");
             },
         }
     );
 }
 
 function resumeAnimateOut(onComplete = null) {
-    console.log("[</>] RESUME");
+    //console.log("[</>] RESUME");
 
     gsap.fromTo(
         resumeMainWrap,
@@ -346,7 +347,7 @@ function resumeAnimateOut(onComplete = null) {
             duration: 0.4,
             opacity: 0,
             onComplete: () => {
-                console.log("[ X ] RESUME");
+                //console.log("[ X ] RESUME");
                 if (onComplete) {
                     onComplete();
                 }
@@ -356,7 +357,16 @@ function resumeAnimateOut(onComplete = null) {
 }
 
 function galleryAnimateOut(onComplete = null) {
-    console.log("[</>] GALLERY");
+    //console.log("[</>] GALLERY");
+
+    gsap.fromTo(
+        galleryBorderArr,
+        { opacity: 1 },
+        {
+            duration: 0.5,
+            opacity: 0,
+        }
+    );
 
     pWrapArr.forEach((item, index) => {
         gsap.fromTo(
@@ -386,26 +396,35 @@ function galleryAnimateOut(onComplete = null) {
 }
 
 function galleryAnimateIn(onComplete = null) {
-    console.log("[<>] GALLERY");
+    //console.log("[<>] GALLERY");
 
     // navLinks.forEach((item, index) => {
     //     item.style.pointerEvents = "none";
     // });
 
     gsap.fromTo(
+        galleryBorderArr,
+        { opacity: 0 },
+        {
+            delay: 0.8,
+            duration: 0.8,
+            opacity: 1,
+        }
+    );
+
+    gsap.fromTo(
         pWrapArr,
         { opacity: 0 },
         {
-            duration: 0.4,
+            duration: 0.5,
             stagger: 0.1,
             opacity: 1,
-            delay: 0.6,
+            delay: 0.8,
             onComplete: () => {
                 // navLinks.forEach((item, index) => {
                 //     item.style.pointerEvents = "auto";
                 // });
-
-                console.log("[</>] GALLERY");
+                //console.log("[</>] GALLERY");
             },
         }
     );
@@ -414,10 +433,10 @@ function galleryAnimateIn(onComplete = null) {
         imgArr,
         { opacity: 0 },
         {
-            duration: 0.5,
+            duration: 0.4,
             stagger: 0.1,
             opacity: 1,
-            delay: 0.5,
+            delay: 0.8,
 
             onComplete: onComplete,
         }
@@ -425,7 +444,7 @@ function galleryAnimateIn(onComplete = null) {
 }
 
 function titleAnimateIn(delay = 0) {
-    console.log("[<>] TITLE");
+    //console.log("[<>] TITLE");
 
     // font titleHeight = 93 (from bottom to top of text)
     // font-size: 125px;
@@ -462,14 +481,14 @@ function titleAnimateIn(delay = 0) {
             duration: 2,
             ease: "expo.inOut",
             onComplete: () => {
-                console.log("[</>] TITLE");
+                //console.log("[</>] TITLE");
             },
         }
     );
 }
 
 function titleAnimateOut() {
-    console.log("[</>] TITLE");
+    //console.log("[</>] TITLE");
 
     // account for gap at top of font
     const titleHeight = "7vw";
@@ -492,7 +511,7 @@ function titleAnimateOut() {
             y: halfTitleHeight,
             duration: 0.5,
             onComplete: () => {
-                console.log("[ X ] TITLE");
+                //console.log("[ X ] TITLE");
             },
         }
     );
@@ -507,7 +526,7 @@ function linksAnimateIn(delay = 0, onComplete = null) {
         item.style.pointerEvents = "none";
     });
 
-    console.log("[<>] LINKS");
+    //console.log("[<>] LINKS");
 
     // STILL NEED TO ADD ANIMATE OF OUTER DIV IN OPPOSITE DIRECTION
     // button-animation-delay allows for separating if needed later
@@ -524,7 +543,7 @@ function linksAnimateIn(delay = 0, onComplete = null) {
         }
     );
 
-    console.log("[</>] LINKS");
+    //console.log("[</>] LINKS");
     navLinks.forEach((item, index) => {
         item.style.pointerEvents = "auto";
     });
@@ -536,7 +555,7 @@ function linksAnimateIn(delay = 0, onComplete = null) {
 }
 
 function linksAnimateOut(delay = 0, onComplete = null) {
-    console.log("[</>] LINKS");
+    //console.log("[</>] LINKS");
     gsap.fromTo(
         [".button-animation", ".button-animation-delay"],
         { y: 0 },
@@ -547,7 +566,7 @@ function linksAnimateOut(delay = 0, onComplete = null) {
             duration: 0.5,
 
             onComplete: () => {
-                console.log("[ X ] LINKS");
+                //console.log("[ X ] LINKS");
                 if (onComplete) {
                     onComplete();
                 }
@@ -557,7 +576,7 @@ function linksAnimateOut(delay = 0, onComplete = null) {
 }
 
 function projectsAnimateIn() {
-    console.log("[<>] PROJECTS");
+    //console.log("[<>] PROJECTS");
 
     // projectBOXArr.forEach((item, index) => {
     //     item.style.pointerEvents = "none";
@@ -586,7 +605,7 @@ function projectsAnimateIn() {
 }
 
 function projectsAnimateOut(onComplete = null) {
-    console.log("[</>] PROJECTS");
+    //console.log("[</>] PROJECTS");
 
     gsap.fromTo(projectBorder, { opacity: 1 }, { opacity: 0, duration: 0.5 });
 
@@ -601,7 +620,7 @@ function projectsAnimateOut(onComplete = null) {
             duration: 0.5,
 
             onComplete: () => {
-                console.log("[ X ] PROJECTS");
+                //console.log("[ X ] PROJECTS");
                 if (onComplete) {
                     onComplete();
                 }
@@ -618,7 +637,7 @@ function showContent(id, onComplete = null) {
 
     // make last page hide
 
-    console.log("[URL] " + id);
+    //console.log("[URL] " + id);
 
     // // show content
     const content = document.getElementById(id + "-content");
@@ -627,7 +646,7 @@ function showContent(id, onComplete = null) {
     }
 
     if (id === "home") {
-        // console.log("Currently home.");
+        // //console.log("Currently home.");
 
         heroContainer.style.display = "flex";
         contentContainer.style.display = "none";
@@ -637,7 +656,7 @@ function showContent(id, onComplete = null) {
         titleAnimateIn();
         linksAnimateIn(0.7, onComplete);
     } else {
-        // console.log("Not home.");
+        // //console.log("Not home.");
 
         heroContainer.style.display = "none";
         contentContainer.style.display = "block";
@@ -662,7 +681,7 @@ function showContent(id, onComplete = null) {
 
             galleryAnimateIn();
 
-            console.log("Done animate for gallery.");
+            //console.log("Done animate for gallery.");
         } else if (id === "about") {
             aboutAnimateIn();
 
@@ -690,25 +709,25 @@ navLinks.forEach((navLink) => {
     navLink.addEventListener("click", (event) => {
         event.preventDefault(); // Prevent the default link behavior (full page refresh)
 
-        // console.log(`Nav button pressed: ${id}`);
+        // //console.log(`Nav button pressed: ${id}`);
 
-        // console.log("----------------");
-        // console.log(
+        // //console.log("----------------");
+        // //console.log(
         //     `Navlink called: animationDone: ${aniDone}, Last complete load: ${lastPage}, New page called: ${id}, target: ${targetPage}`
         // );
 
         if (aniDone == true) {
-            // console.log("Animation is done, checking for changed state");
+            // //console.log("Animation is done, checking for changed state");
 
             aniDone = false;
 
-            // console.log(`New target state: ${id}`);
+            // //console.log(`New target state: ${id}`);
             targetPage = id;
 
             if (id) {
                 // different page called and animation done
                 if (lastPage != id) {
-                    // console.log(`Old page: ${lastPage} ; New page: ${id}`);
+                    // //console.log(`Old page: ${lastPage} ; New page: ${id}`);
 
                     if (id == "home") {
                         if (lastPage == "projects") {
@@ -725,73 +744,39 @@ navLinks.forEach((navLink) => {
 
                         linksAnimateOut(0, () => {
                             showContent(id, () => {
-                                // console.log(
+                                // //console.log(
                                 //     `Animation done. New last loaded page: ${lastPage}.`
                                 // );
                                 aniDone = true;
                                 lastPage = id;
 
-                                // console.log(`New push state: ${id}`);
+                                // //console.log(`New push state: ${id}`);
                                 history.pushState({ page: id }, "", `/`);
                             });
                         });
-                    }
-                    // else if (id == "about") {
-                    //     // const currentTop =
-                    //     //     document.getElementById("title").style.top;
-                    //     linksAnimateOut(0);
-
-                    //     const heroContainer = document.getElementById("hero");
-
-                    //     // navBar.style.display = "none";
-
-                    //     // gsap.fromTo(
-                    //     //     heroContainer,
-                    //     //     { height: "100%" },
-                    //     //     {
-                    //     //         delay: 0.5,
-                    //     //         height: "0%",
-                    //     //         duration: 2,
-                    //     //         ease: "power4.inOut",
-                    //     //         onComplete: () => {},
-                    //     //     }
-                    //     // );
-
-                    //     gsap.fromTo(
-                    //         "#title",
-                    //         { y: 0 },
-                    //         {
-                    //             delay: 0.5,
-                    //             y: `-60vh`,
-                    //             duration: 2,
-                    //             ease: "power4.inOut",
-                    //             onComplete: () => {},
-                    //         }
-                    //     );
-                    // }
-                    else {
+                    } else {
                         titleAnimateOut();
                         linksAnimateOut(0, () => {
                             showContent(id, () => {
-                                // console.log(
+                                // //console.log(
                                 //     `Animation done. New last loaded page: ${lastPage}.`
                                 // );
                                 aniDone = true;
                                 lastPage = id;
 
-                                // console.log(`New push state: ${id}`);
+                                // //console.log(`New push state: ${id}`);
                                 history.pushState({ page: id }, "", `/${id}`);
                             });
                         });
                     }
                 } else {
-                    // console.log("Page not changing, no animation to wait for");
+                    // //console.log("Page not changing, no animation to wait for");
                     aniDone = true;
                 }
             }
         } else {
-            // console.log("Animation is not done, continuing to target state");
-            // console.log(
+            // //console.log("Animation is not done, continuing to target state");
+            // //console.log(
             //     `Last loaded page: ${lastPage}, new page called: ${id}, target: ${targetPage}`
             // );
             if (targetPage == "home") {
@@ -804,24 +789,24 @@ navLinks.forEach((navLink) => {
 });
 
 window.addEventListener("popstate", (event) => {
-    // console.log("----------------");
-    // console.log(
+    // //console.log("----------------");
+    // //console.log(
     //     `Pop called: animationDone: ${aniDone}, Last complete load: ${lastPage}, New page called: ${event.state.page}, target: ${targetPage}`
     // );
 
     const state = event.state;
     if (aniDone == true) {
-        // console.log("Animation is done, checking for changed state");
+        // //console.log("Animation is done, checking for changed state");
 
         aniDone = false;
 
-        // console.log(`New target state: ${state.page}`);
+        // //console.log(`New target state: ${state.page}`);
         targetPage = state.page;
 
         if (state && state.page) {
             // different page called and animation done
             if (lastPage != state.page) {
-                // console.log(`Old page: ${lastPage} ; New page: ${state.page}`);
+                // //console.log(`Old page: ${lastPage} ; New page: ${state.page}`);
 
                 if (state.page == "home") {
                     if (lastPage == "projects") {
@@ -835,7 +820,7 @@ window.addEventListener("popstate", (event) => {
                     }
                     linksAnimateOut(0, () => {
                         showContent(state.page, () => {
-                            // console.log(
+                            // //console.log(
                             //     `Animation done. New last loaded page: ${lastPage}.`
                             // );
                             aniDone = true;
@@ -846,7 +831,7 @@ window.addEventListener("popstate", (event) => {
                     titleAnimateOut();
                     linksAnimateOut(0, () => {
                         showContent(state.page, () => {
-                            // console.log(
+                            // //console.log(
                             //     `Animation done. New last loaded page: ${lastPage}.`
                             // );
                             aniDone = true;
@@ -855,13 +840,13 @@ window.addEventListener("popstate", (event) => {
                     });
                 }
             } else {
-                // console.log("Page not changing, no animation to wait for");
+                // //console.log("Page not changing, no animation to wait for");
                 aniDone = true;
             }
         }
     } else {
-        // console.log("Animation is not done, continuing to target state");
-        // console.log(
+        // //console.log("Animation is not done, continuing to target state");
+        // //console.log(
         //     `Last loaded page: ${lastPage}, new page called: ${state.page}, target: ${targetPage}`
         // );
         if (targetPage == "home") {
