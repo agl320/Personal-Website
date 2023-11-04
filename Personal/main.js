@@ -23,6 +23,11 @@ if ("maxTouchPoints" in navigator) {
 }
 
 if (hasTouchScreen) {
+    const heroContainer = document.getElementById("hero");
+    const contentContainer = document.getElementById("content-container");
+
+    heroContainer.style.display = "none";
+    contentContainer.style.display = "none";
 } else {
     gsap.registerPlugin(ScrollTrigger);
 
