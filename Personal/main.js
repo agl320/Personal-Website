@@ -25,9 +25,11 @@ if ("maxTouchPoints" in navigator) {
 if (hasTouchScreen) {
     const heroContainer = document.getElementById("hero");
     const contentContainer = document.getElementById("content-container");
+    const altViewContainer = document.getElementById("alt-view");
 
     heroContainer.style.display = "none";
     contentContainer.style.display = "none";
+    altViewContainer.style.display = "block";
 } else {
     gsap.registerPlugin(ScrollTrigger);
 
