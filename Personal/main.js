@@ -32,8 +32,12 @@ if (hasTouchScreen) {
     contentContainer.style.display = "none";
     altViewContainer.style.display = "block";
 
-    document.body.style.overflow = "visible";
-    document.documentElement.style.overflow = "visible";
+    document.body.style.overflowY = "visible";
+    document.body.style.overflowX = "hidden";
+    document.body.style.position = "relative";
+
+    document.documentElement.style.overflowY = "visible";
+    document.documentElement.style.overflowX = "hidden";
 
     document.body.style.height = "auto";
     document.documentElement.style.height = "auto";
