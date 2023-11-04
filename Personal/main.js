@@ -391,6 +391,7 @@ if (hasTouchScreen) {
             resumeMainWrap,
             { opacity: 0 },
             {
+                delay: 0.3,
                 duration: 1,
                 opacity: 1,
                 onComplete: () => {
@@ -407,7 +408,7 @@ if (hasTouchScreen) {
 
         gsap.fromTo(
             resumeMainWrap,
-            { opacity: 1 },
+            { opacity: resumeMainWrap.style.opacity },
             {
                 duration: 0.4,
                 opacity: 0,
