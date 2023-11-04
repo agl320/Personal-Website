@@ -471,7 +471,7 @@ if (hasTouchScreen) {
             galleryBorderArr,
             { opacity: 0 },
             {
-                delay: 0.8,
+                delay: 0.6,
                 duration: 0.8,
                 opacity: 1,
             }
@@ -484,7 +484,7 @@ if (hasTouchScreen) {
                 duration: 0.5,
                 stagger: 0.1,
                 opacity: 1,
-                delay: 0.8,
+                delay: 0.6,
                 onComplete: () => {
                     // navLinks.forEach((item, index) => {
                     //     item.style.pointerEvents = "auto";
