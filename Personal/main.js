@@ -31,6 +31,12 @@ if (hasTouchScreen) {
     heroContainer.style.display = "none";
     contentContainer.style.display = "none";
     altViewContainer.style.display = "block";
+
+    document.body.style.overflow = "visible";
+    document.documentElement.style.overflow = "visible";
+
+    document.body.style.height = "auto";
+    document.documentElement.style.height = "auto";
 } else {
     const lenis = new Lenis({ duration: 1 });
 
