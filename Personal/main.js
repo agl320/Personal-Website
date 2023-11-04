@@ -1,5 +1,6 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import Lenis from "@studio-freight/lenis";
 
 var hasTouchScreen = false;
 
@@ -31,6 +32,19 @@ if (hasTouchScreen) {
     contentContainer.style.display = "none";
     altViewContainer.style.display = "block";
 } else {
+    const lenis = new Lenis({ duration: 1 });
+
+    // lenis.on("scroll", (e) => {
+    //     console.log(e);
+    // });
+
+    function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
     gsap.registerPlugin(ScrollTrigger);
 
     // RESUME TEXT FLICKER
