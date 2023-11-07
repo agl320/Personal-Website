@@ -548,6 +548,12 @@ ul > li {
     font-family: "Z"; */
 }
 
+/* #title h1 {
+    background: linear-gradient(to right, rgb(252, 100, 0), rgb(252, 0, 200));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+} */
+
 .title-animation {
     transform: translateY(150px);
     transition: transform 0s;
