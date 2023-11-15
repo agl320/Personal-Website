@@ -247,7 +247,7 @@ p {
 #about-main {
     padding-top: 30px;
     padding-bottom: 30px;
-    height: 100%;
+    min-height: 100%;
     display: flex;
     justify-content: space-evenly;
 }
@@ -259,6 +259,15 @@ p {
     color: rgba(255, 255, 255, 0.4);
 
     transition: color 1.5s;
+}
+
+.exp-flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.exp-right {
+    text-align: right;
 }
 
 #about-main p:hover {
@@ -283,7 +292,7 @@ p {
     font-family: "NBPro";
     font-weight: 500;
     color: rgba(255, 255, 255, 0.4);
-    font-size: 3vw;
+    font-size: 2.8vw;
     line-height: 2.5vw;
 
     margin-top: 3px;
@@ -296,7 +305,7 @@ p {
     font-family: "NBPro";
     font-weight: 500;
     color: rgba(255, 255, 255, 1);
-    font-size: 3vw;
+    font-size: 2.8vw;
     line-height: 2.5vw;
 
     margin-top: 3px;
