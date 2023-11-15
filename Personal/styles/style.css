@@ -261,6 +261,25 @@ p {
     transition: color 1.5s;
 }
 
+#about-main .exp-title {
+    color: white;
+}
+
+.exp-description p {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.exp-col ul {
+    margin-left: 15px;
+    /* list-style: none; */
+    text-align: justify;
+    text-justify: inter-character;
+}
+
+/* .exp-col > div {
+    border-bottom: white 1px dotted;
+} */
+
 .exp-flex {
     display: flex;
     justify-content: space-between;
@@ -517,11 +536,11 @@ p {
     padding-inline-start: 0;
 } */
 
-ul {
+.project-box ul {
     width: 100%;
 }
 
-ul > li {
+.project-box ul > li {
     list-style-type: none;
     display: inline-block;
 
