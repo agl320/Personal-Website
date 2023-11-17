@@ -548,7 +548,7 @@ p {
 
     /* background-color: rgb(53, 53, 53); */
     /* border-radius: 5px; */
-    border: rgba(255, 255, 255, 0.4) solid 1px;
+    border: rgba(255, 255, 255, 0.4) dashed 1px;
     color: rgba(255, 255, 255, 0.4);
 
     margin-bottom: 3px;
@@ -558,10 +558,10 @@ p {
     font-family: "PM";
 }
 
-.tag-special {
+.project-box ul > .tag-special {
     /* background-color: rgb(82, 82, 82); */
     color: white;
-    border: rgba(255, 255, 255, 1) solid 1px;
+    border: rgba(255, 255, 255, 1) dashed 1px;
 }
 
 #title {
