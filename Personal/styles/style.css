@@ -178,7 +178,7 @@ p {
     font-family: "PM";
     font-weight: 500;
 
-    font-size: 17px;
+    font-size: 12px;
     line-height: 15px;
 }
 
@@ -253,7 +253,7 @@ p {
 }
 
 #about-main p {
-    font-size: 10px;
+    font-size: 11px;
     line-height: 15px;
     font-family: "PM";
     color: rgba(255, 255, 255, 0.4);
@@ -296,7 +296,7 @@ p {
 }
 
 #about-left #about-focus {
-    font-size: 10px;
+    font-size: 11px;
     line-height: 15px;
     font-family: "PM";
     font-weight: 500;
@@ -418,7 +418,7 @@ p {
 }
 
 .projects-border p {
-    font-size: 10px;
+    font-size: 11px;
     font-family: "PM";
     color: rgba(255, 255, 255, 0.4);
 }
@@ -431,8 +431,6 @@ p {
     background: rgba(0, 0, 0, 0);
     /* margin: 1rgba(0, 0, 0, 0)*/
     margin: 1vw;
-
-    font-family: "NeueHaasDisplay";
 
     width: 40vh;
 
@@ -486,7 +484,7 @@ p {
 
 .project-title {
     /* font-size: 1em; */
-    font-size: 10px;
+    font-size: 11px;
     font-family: "PM";
 
     /* text-align: center; */
@@ -510,7 +508,7 @@ p {
 .project-description {
     /* font-size: clamp(10px, 1.2vh, 12px);
     font-family: "NB"; */
-    font-size: 10px;
+    font-size: 11px;
     line-height: 12px;
     font-family: "PM";
     margin-top: 5px;
@@ -576,6 +574,37 @@ p {
     font-family: "Z"; */
 }
 
+.sub-title {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
+    /* transform: translateY(-10px);
+    transition: transform 0s; */
+
+    margin-top: 20px;
+
+    display: flex;
+    justify-content: space-between;
+
+    /* text-align: center;
+    font-family: "Z"; */
+}
+
+.sub-title > div {
+    display: flex;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.sub-title p {
+    font-weight: 600;
+
+    white-space: nowrap;
+    font-size: 11px;
+}
+
+.sub-title .spacer {
+    width: 100px;
+}
+
 /* #title h1 {
     background: linear-gradient(to right, rgb(252, 100, 0), rgb(252, 0, 200));
     -webkit-text-fill-color: transparent;
@@ -613,7 +642,7 @@ p {
     margin-bottom: 15px;
 }
 
-.button-animation {
+/* .button-animation {
     transform: translateY(30px);
     transition: transform 0s;
 }
@@ -622,6 +651,11 @@ p {
     transform: translateY(30px);
     transition: transform 0s;
 }
+
+.button-animation-early {
+    transform: translateY(30px);
+    transition: transform 0s;
+} */
 
 .arrow {
     border: solid rgb(255, 255, 255);
@@ -656,7 +690,7 @@ p {
 }
 
 .gallery-border p {
-    font-size: 10px;
+    font-size: 11px;
 
     font-family: "PM";
     color: rgba(255, 255, 255, 0.4);
@@ -684,7 +718,7 @@ p {
     font-size: max(10px, 0.7vw); */
     margin-bottom: 8px;
 
-    font-size: 10px;
+    font-size: 11px;
 
     font-family: "PM";
     font-weight: 500;
@@ -794,7 +828,7 @@ p {
 .prev-title p {
     text-align: center;
     font-family: "PM";
-    font-size: 10px;
+    font-size: 11px;
 
     opacity: 0.4;
 }
@@ -988,7 +1022,7 @@ p {
     text-transform: uppercase;
 
     font-family: "PM";
-    font-size: 10px;
+    font-size: 11px;
 }
 
 #resume-hor-flex {
@@ -1010,7 +1044,7 @@ p {
 
 .resume-row p {
     font-family: "PM";
-    font-size: 10px;
+    font-size: 11px;
     text-align: center;
 }
 
@@ -1026,7 +1060,7 @@ p {
     justify-content: space-between;
 
     font-family: "PM";
-    font-size: 10px;
+    font-size: 11px;
 }
 
 /* other */
@@ -1052,5 +1086,5 @@ p {
 }
 
 .file-add {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 1);
 }

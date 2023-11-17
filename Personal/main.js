@@ -589,6 +589,32 @@ if (hasTouchScreen) {
 
     const animations = [];
 
+    function getVisibleElements(className) {
+        let visibleElements = [];
+
+        document.querySelectorAll(className).forEach((button) => {
+            let parent = button.parentElement;
+            let dispNone = false;
+
+            while (parent) {
+                const displayStyle = window.getComputedStyle(parent).display;
+
+                if (displayStyle === "none") {
+                    dispNone = true;
+                    break;
+                }
+
+                parent = parent.parentElement;
+            }
+
+            if (!dispNone) {
+                visibleElements.push(button);
+            }
+        });
+
+        return visibleElements;
+    }
+
     function linksAnimateIn(delay = 0, onComplete = null) {
         animations.forEach((animation) => animation.kill());
 
@@ -596,13 +622,19 @@ if (hasTouchScreen) {
             item.style.pointerEvents = "none";
         });
 
-        //console.log("[<>] LINKS");
+        const visibleButtonsEarly = getVisibleElements(
+            ".button-animation-early"
+        );
+        const visibleButtons = getVisibleElements(".button-animation");
+        const visibleButtonsDelay = getVisibleElements(
+            ".button-animation-delay"
+        );
 
         // STILL NEED TO ADD ANIMATE OF OUTER DIV IN OPPOSITE DIRECTION
         // button-animation-delay allows for separating if needed later
         const animation = gsap.fromTo(
-            [".button-animation", ".button-animation-delay"],
-            { y: 16 },
+            [visibleButtonsEarly, visibleButtons, visibleButtonsDelay],
+            { y: 15 },
             {
                 stagger: 0.1,
                 delay: delay,
@@ -627,7 +659,11 @@ if (hasTouchScreen) {
     function linksAnimateOut(delay = 0, onComplete = null) {
         //console.log("[</>] LINKS");
         gsap.fromTo(
-            [".button-animation", ".button-animation-delay"],
+            [
+                ".button-animation-early",
+                ".button-animation",
+                ".button-animation-delay",
+            ],
             { y: 0 },
             {
                 stagger: 0,
@@ -728,7 +764,7 @@ if (hasTouchScreen) {
             document.documentElement.style.overflow = "hidden";
 
             titleAnimateIn();
-            linksAnimateIn(0.7, onComplete);
+            linksAnimateIn(1.2, onComplete);
         } else {
             // //console.log("Not home.");
 
