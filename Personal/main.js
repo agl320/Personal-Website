@@ -622,9 +622,9 @@ if (hasTouchScreen) {
             item.style.pointerEvents = "none";
         });
 
-        const visibleButtonsEarly = getVisibleElements(
-            ".button-animation-early"
-        );
+        // const visibleButtonsEarly = getVisibleElements(
+        //     ".button-animation-early"
+        // );
         const visibleButtons = getVisibleElements(".button-animation");
         const visibleButtonsDelay = getVisibleElements(
             ".button-animation-delay"
@@ -633,7 +633,7 @@ if (hasTouchScreen) {
         // STILL NEED TO ADD ANIMATE OF OUTER DIV IN OPPOSITE DIRECTION
         // button-animation-delay allows for separating if needed later
         const animation = gsap.fromTo(
-            [visibleButtonsEarly, visibleButtons, visibleButtonsDelay],
+            [visibleButtons, visibleButtonsDelay],
             { y: 15 },
             {
                 stagger: 0.1,
@@ -764,7 +764,7 @@ if (hasTouchScreen) {
             document.documentElement.style.overflow = "hidden";
 
             titleAnimateIn();
-            linksAnimateIn(1.2, onComplete);
+            linksAnimateIn(1.3, onComplete);
         } else {
             // //console.log("Not home.");
 
