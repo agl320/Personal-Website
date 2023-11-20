@@ -581,6 +581,7 @@ p {
     transition: transform 0s; */
 
     margin-top: 40px;
+    padding-left: 2px;
 
     display: flex;
     justify-content: space-between;
